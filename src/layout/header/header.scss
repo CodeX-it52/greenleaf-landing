@@ -1,0 +1,36 @@
+@use '@scss/variables' as *;
+
+.header {
+  display: flex;
+  flex-direction: row;
+  width: calc(100% - 90px * 2);
+  margin: 0 auto;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 0;
+
+  @media screen and (max-width: 1023px) {
+    width: calc(100% - 25px * 2);
+  }
+}
+
+.header__links-container {
+  display: flex;
+  flex-direction: row;
+  gap: 77px;
+  align-items: center;
+
+  @media screen and (max-width: 1023px) {
+    gap: 40px;
+  }
+}
+
+.header__phone {
+  width: 100%;
+  color: $main-green;
+  font-size: 16px;
+
+  @media screen and (max-width: 1023px) {
+    font-size: 12px;
+  }
+}

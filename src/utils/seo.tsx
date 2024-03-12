@@ -1,7 +1,13 @@
 import React from "react";
 import {Helmet} from "react-helmet-async";
 
-const SEO: React.FC = ({title, description, keywords}) => {
+type SeoProps = {
+    title: string,
+    description: string,
+    keywords: string[],
+}
+
+const SEO: React.FC<SeoProps> = ({title, description, keywords} ) => {
     return (
         <Helmet>
             <title>{title}</title>

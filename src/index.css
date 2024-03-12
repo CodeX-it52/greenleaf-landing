@@ -1,6 +1,9 @@
 @import url("@assets/normalize.css");
+@import url("@assets/fonts/fonts.css");
 @import url("@scss/_mixins.scss");
 @import url("@scss/_variables.scss");
 @import url("@scss/base.scss");
-
 @import url("@/App.scss");
+@import url("@layout/footer/footer.scss");
+@import url("@layout/header/header.scss");
+@import url("@components/navigation/navigation.scss");

@@ -1,0 +1,70 @@
+@use "@scss/variables" as *;
+
+.footer {
+  background-color: $main-green;
+  width: 100%;
+  padding: 80px 0;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-content: center;
+}
+
+
+
+.footer__wrap {
+  width: calc(100% - 90px * 2);
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 0 auto;
+
+  @media screen and (max-width: 1023px) {
+    width: calc(100% - 25px * 2);
+  }
+}
+
+.footer__address {
+  color: white;
+  font-size: 14px;
+}
+
+.footer__contact {
+  color: white;
+}
+
+.footer__policy {
+  color: white;
+  text-decoration: underline;
+}
+
+.footer__address-container {
+  display: flex;
+  flex-direction: column;
+  gap: 35px;
+}
+
+.footer__nav {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.footer__navlink {
+  text-transform: uppercase;
+  color: white;
+  font-size: 16px;
+}
+
+.footer__contacts {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.footer__contacts-container {
+  display: flex;
+  flex-direction: column;
+  gap: 60px;
+}

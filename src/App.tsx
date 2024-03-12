@@ -4,10 +4,10 @@ import SEO from "@utils/seo.tsx";
 import Layout from "@layout/layout";
 const Home = React.lazy(() => import("@pages/home"));
 
-function App() {
+const App: React.FC = () => {
   return (
     <div className={"body"}>
-      <SEO title={""} description={""} keywords={""} />
+      <SEO title={"GreenLeaf"} description={""} keywords={[""]} />
       <Layout>
         <Routes>
           <Route path={"/"} element={<Home />} />

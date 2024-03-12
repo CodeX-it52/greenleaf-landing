@@ -1,0 +1,64 @@
+@use "@scss/variables" as *;
+@use "@scss/mixins" as *;
+
+html {
+  scroll-behavior: smooth;
+}
+
+.link {
+  cursor: pointer;
+  text-decoration: none;
+
+  :hover {
+    opacity: 0.4;
+    transition: opacity 0.3s ease-in-out;
+  }
+}
+
+h1 {
+  @extend %text;
+
+  font-weight: 550;
+  font-size: 96px;
+
+  @media screen and (max-width: 1023px) {
+    font-size: 58px;
+  }
+}
+
+h2 {
+  @extend %text;
+  font-weight: 550;
+  font-size: 32px;
+
+  @media screen and (max-width: 1023px) {
+    font-size: 24px;
+  }
+}
+
+.text_m {
+  @extend %text;
+  font-weight: 400;
+  font-size: 20px;
+
+  @media scren and (max-width: 1023px) {
+    font-size: 14px;
+  }
+}
+
+.text_s {
+  @extend %text;
+  font-weight: 400;
+  font-size: 18px;
+
+  @media screen and (max-width: 1023px) {
+    font-size: 14px;
+  }
+}
+
+.logo {
+  width: 150px;
+  height: 42px;
+  object-fit: contain;
+  padding: 3px;
+}

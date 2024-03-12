@@ -229,6 +229,18 @@
     lodash "^4.17.15"
     webpack-merge "^4.2.2"
 
+"@emotion/is-prop-valid@^0.8.2":
+  version "0.8.8"
+  resolved "http://npm.prakticum-team.ru/@emotion/is-prop-valid/-/is-prop-valid-0.8.8.tgz#db28b1c4368a259b60a97311d6a952d4fd01ac1a"
+  integrity sha512-u5WtneEAr5IDG2Wv65yhunPSMLIpuKsbuOktRojfrEiEvRyC85LgPMZI63cr7NUqT8ZIGdSVg8ZKGxIug4lXcA==
+  dependencies:
+    "@emotion/memoize" "0.7.4"
+
+"@emotion/memoize@0.7.4":
+  version "0.7.4"
+  resolved "http://npm.prakticum-team.ru/@emotion/memoize/-/memoize-0.7.4.tgz#19bf0f5af19149111c40d98bb0cf82119f5d9eeb"
+  integrity sha512-Ja/Vfqe3HpuzRsG1oBtWTHk2PGZ7GR+2Vz5iYGelAw8dx32K0y7PjVuxK6z1nMpZOqAFsRUPCkK1YjJ56qJlgw==
+
 "@esbuild/aix-ppc64@0.19.12":
   version "0.19.12"
   resolved "http://npm.prakticum-team.ru/@esbuild/aix-ppc64/-/aix-ppc64-0.19.12.tgz#d1bc06aedb6936b3b6d313bf809a5a40387d2b7f"
@@ -568,6 +580,11 @@
   resolved "http://npm.prakticum-team.ru/@types/estree/-/estree-1.0.5.tgz#a6ce3e556e00fd9895dd872dd172ad0d4bd687f4"
   integrity sha512-/kYRxGDLWzHOB7q+wtSUQlFrtcdUccpfy+X+9iMBpHK8QLLhx2wIPYuS5DYtR9Wa/YlZAbIovy7qVdB1Aq6Lyw==
 
+"@types/history@^4.7.11":
+  version "4.7.11"
+  resolved "http://npm.prakticum-team.ru/@types/history/-/history-4.7.11.tgz#56588b17ae8f50c53983a524fc3cc47437969d64"
+  integrity sha512-qjDJRrmvBMiTx+jyLxvLfJU7UznFuokDv4f3WRuriHKERccVpFU+8XMQUAbDzoiJCsmexxRExQeMwwCdamSKDA==
+
 "@types/json-schema@^7.0.12":
   version "7.0.15"
   resolved "http://npm.prakticum-team.ru/@types/json-schema/-/json-schema-7.0.15.tgz#596a1747233694d50f6ad8a7869fcb6f56cf5841"
@@ -597,7 +614,33 @@
   dependencies:
     "@types/react" "*"
 
-"@types/react@*", "@types/react@^18.2.56":
+"@types/react-router-dom@^5.3.0":
+  version "5.3.3"
+  resolved "http://npm.prakticum-team.ru/@types/react-router-dom/-/react-router-dom-5.3.3.tgz#e9d6b4a66fcdbd651a5f106c2656a30088cc1e83"
+  integrity sha512-kpqnYK4wcdm5UaWI3fLcELopqLrHgLqNsdpHauzlQktfkHL3npOSwtj1Uz9oKBAzs7lFtVkV8j83voAz2D8fhw==
+  dependencies:
+    "@types/history" "^4.7.11"
+    "@types/react" "*"
+    "@types/react-router" "*"
+
+"@types/react-router-hash-link@^2.4.9":
+  version "2.4.9"
+  resolved "http://npm.prakticum-team.ru/@types/react-router-hash-link/-/react-router-hash-link-2.4.9.tgz#b9f069fb5faeba2477426b3932205d080f72ba99"
+  integrity sha512-zl/VMj+lfJZhvjOAQXIlBVPNKSK+/fRG8AUHhlP9++LhlA2ziLeTmbRxIMJI3PCiCTS+W/FosEoDRoNOGH0OzA==
+  dependencies:
+    "@types/history" "^4.7.11"
+    "@types/react" "*"
+    "@types/react-router-dom" "^5.3.0"
+
+"@types/react-router@*":
+  version "5.1.20"
+  resolved "http://npm.prakticum-team.ru/@types/react-router/-/react-router-5.1.20.tgz#88eccaa122a82405ef3efbcaaa5dcdd9f021387c"
+  integrity sha512-jGjmu/ZqS7FjSH6owMcD5qpq19+1RS9DeVRqfl1FeBMxTDQAGwlMWOcs52NDoXaNKyG3d1cYQFMs9rCrb88o9Q==
+  dependencies:
+    "@types/history" "^4.7.11"
+    "@types/react" "*"
+
+"@types/react@*", "@types/react@^18.2.64":
   version "18.2.64"
   resolved "http://npm.prakticum-team.ru/@types/react/-/react-18.2.64.tgz#3700fbb6b2fa60a6868ec1323ae4cbd446a2197d"
   integrity sha512-MlmPvHgjj2p3vZaxbQgFUQFvD8QiZwACfGqEdDSWou5yISWxDQ4/74nCAwsUiX7UFLKZz3BbVSPj+YxeoGGCfg==
@@ -737,11 +780,6 @@
   resolved "http://npm.prakticum-team.ru/@typescript-eslint/types/-/types-7.1.1.tgz#ca33ba7cf58224fb46a84fea62593c2c53cd795f"
   integrity sha512-KhewzrlRMrgeKm1U9bh2z5aoL4s7K3tK5DwHDn8MHv0yQfWFz/0ZR6trrIHHa5CsF83j/GgHqzdbzCXJ3crx0Q==
 
-"@typescript-eslint/types@7.1.2-alpha.13":
-  version "7.1.2-alpha.13"
-  resolved "http://npm.prakticum-team.ru/@typescript-eslint/types/-/types-7.1.2-alpha.13.tgz#1e8388aa978baf48187e75a14d51a5a7535e1c01"
-  integrity sha512-kJUyWZrp4jofMGfJ2HKMPbnIjRLxAtNfPtewQHtnF3+/NodXJAV8rdHe2yqONDwGlIghuHKM4lPvn24h7TcTYQ==
-
 "@typescript-eslint/types@7.2.0":
   version "7.2.0"
   resolved "http://npm.prakticum-team.ru/@typescript-eslint/types/-/types-7.2.0.tgz#0feb685f16de320e8520f13cca30779c8b7c403f"
@@ -776,12 +814,12 @@
     ts-api-utils "^1.0.1"
 
 "@typescript-eslint/typescript-estree@7.2.0":
-  version "7.1.2-alpha.13"
-  resolved "http://npm.prakticum-team.ru/@typescript-eslint/typescript-estree/-/typescript-estree-7.1.2-alpha.13.tgz#6f52c429a202bf5042069113f0f917d23e10c3a5"
-  integrity sha512-gAUcTsb/bRLGpyHKJ760nFcIZWOWi3j5wPhC4rOEMnJ25Z7ybEezvB0mlbiZwoW6tWLzEwgLLPp6evn/Ztg+fA==
+  version "7.2.0"
+  resolved "http://npm.prakticum-team.ru/@typescript-eslint/typescript-estree/-/typescript-estree-7.2.0.tgz#5beda2876c4137f8440c5a84b4f0370828682556"
+  integrity sha512-cyxS5WQQCoBwSakpMrvMXuMDEbhOo9bNHHrNcEWis6XHx6KF518tkF1wBvKIn/tpq5ZpUYK7Bdklu8qY0MsFIA==
   dependencies:
-    "@typescript-eslint/types" "7.1.2-alpha.13"
-    "@typescript-eslint/visitor-keys" "7.1.2-alpha.13"
+    "@typescript-eslint/types" "7.2.0"
+    "@typescript-eslint/visitor-keys" "7.2.0"
     debug "^4.3.4"
     globby "^11.1.0"
     is-glob "^4.0.3"
@@ -816,14 +854,6 @@
   integrity sha512-yTdHDQxY7cSoCcAtiBzVzxleJhkGB9NncSIyMYe2+OGON1ZsP9zOPws/Pqgopa65jvknOjlk/w7ulPlZ78PiLQ==
   dependencies:
     "@typescript-eslint/types" "7.1.1"
-    eslint-visitor-keys "^3.4.1"
-
-"@typescript-eslint/visitor-keys@7.1.2-alpha.13":
-  version "7.1.2-alpha.13"
-  resolved "http://npm.prakticum-team.ru/@typescript-eslint/visitor-keys/-/visitor-keys-7.1.2-alpha.13.tgz#df00cd1304cd042dc890505191eda844aae3d129"
-  integrity sha512-3G+i9It15L1QLou7QJx7p3I8Y41oaeBclHtGPKbp4du0cunPPviD6hkNMLMkhcvvD0F5Lrf/XQJ4bI6XDX6viA==
-  dependencies:
-    "@typescript-eslint/types" "7.1.2-alpha.13"
     eslint-visitor-keys "^3.4.1"
 
 "@typescript-eslint/visitor-keys@7.2.0":
@@ -2559,6 +2589,15 @@ fragment-cache@^0.2.1:
   dependencies:
     map-cache "^0.2.2"
 
+framer-motion@^11.0.8:
+  version "11.0.8"
+  resolved "http://npm.prakticum-team.ru/framer-motion/-/framer-motion-11.0.8.tgz#8f97a18cbad5858d85b53bc325c40a03d0a5c203"
+  integrity sha512-1KSGNuqe1qZkS/SWQlDnqK2VCVzRVEoval379j0FiUBJAZoqgwyvqFkfvJbgW2IPFo4wX16K+M0k5jO23lCIjA==
+  dependencies:
+    tslib "^2.4.0"
+  optionalDependencies:
+    "@emotion/is-prop-valid" "^0.8.2"
+
 from2@^2.1.0:
   version "2.3.0"
   resolved "http://npm.prakticum-team.ru/from2/-/from2-2.3.0.tgz#8bfb5502bde4a4d36cfdeea007fcca21d7e382af"
@@ -4001,7 +4040,7 @@ promise-inflight@^1.0.1:
   resolved "http://npm.prakticum-team.ru/promise-inflight/-/promise-inflight-1.0.1.tgz#98472870bf228132fcbdd868129bad12c3c029e3"
   integrity sha512-6zWPyEOFaQBJYcGMHBKTKJ3u6TBsnMFOIZSa6ce1e/ZrrsOlnHRHbabMjLiBYKp+n44X9eUI6VUPaukCXHuG4g==
 
-prop-types@^15.8.1:
+prop-types@^15.7.2, prop-types@^15.8.1:
   version "15.8.1"
   resolved "http://npm.prakticum-team.ru/prop-types/-/prop-types-15.8.1.tgz#67d87bf1a694f48435cf332c24af10214a3140b5"
   integrity sha512-oj87CgZICdulUohogVAR7AjlC0327U4el4L6eAvOqCeudMDVU0NThNaV+b9Df4dXgSP1gXMTnPdhfe/2qDH5cg==
@@ -4146,6 +4185,13 @@ react-router-dom@^6.22.2:
   dependencies:
     "@remix-run/router" "1.15.2"
     react-router "6.22.2"
+
+react-router-hash-link@^2.4.3:
+  version "2.4.3"
+  resolved "http://npm.prakticum-team.ru/react-router-hash-link/-/react-router-hash-link-2.4.3.tgz#570824d53d6c35ce94d73a46c8e98673a127bf08"
+  integrity sha512-NU7GWc265m92xh/aYD79Vr1W+zAIXDWp3L2YZOYP4rCqPnJ6LI6vh3+rKgkidtYijozHclaEQTAHaAaMWPVI4A==
+  dependencies:
+    prop-types "^15.7.2"
 
 react-router@6.22.2, react-router@^6.22.2:
   version "6.22.2"
@@ -4855,6 +4901,11 @@ tsconfig-paths@^3.15.0:
     json5 "^1.0.2"
     minimist "^1.2.6"
     strip-bom "^3.0.0"
+
+tslib@^2.4.0:
+  version "2.6.2"
+  resolved "http://npm.prakticum-team.ru/tslib/-/tslib-2.6.2.tgz#703ac29425e7b37cd6fd456e92404d46d1f3e4ae"
+  integrity sha512-AEYxH93jGFPn/a2iVAwW87VuUIkR1FVUKB77NwMF7nBTDkDrrT/Hpt/IrCJ0QXhW27jTBDcf5ZY7w6RiqTMw2Q==
 
 tty-browserify@0.0.0:
   version "0.0.0"
