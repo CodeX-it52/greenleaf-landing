@@ -7,3 +7,4 @@
 @import url("@layout/footer/footer.scss");
 @import url("@layout/header/header.scss");
 @import url("@components/navigation/navigation.scss");
+@import url("@components/main/main.scss");

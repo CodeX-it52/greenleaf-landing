@@ -11,11 +11,11 @@ const ScrollTriggerAnimation: React.FC<ComponentProps> = ({children}) => {
         <motion.div
             initial={"hidden"}
             viewport={{once: true}}
-            transition={{duration: 0.5}}
+            transition={{duration: 0.7}}
             whileInView={"visible"}
             variants={{
-                visible: { opacity: 1, scale: 1 },
-                hidden: { opacity: 0, scale: 0 }
+                visible: { opacity: 1, y: 0 },
+                hidden: { opacity: 0, y: 50 }
             }}
         >
             {children}

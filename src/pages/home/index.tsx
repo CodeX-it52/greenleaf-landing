@@ -1,8 +1,9 @@
+import Main from "@components/main/main.tsx";
 
 
 const Home: React.FC = () => {
     return (
-        <h1>home</h1>
+        <Main />
     )
 }
 

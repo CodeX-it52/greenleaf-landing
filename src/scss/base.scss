@@ -6,8 +6,8 @@ html {
 }
 
 .link {
-  cursor: pointer;
   text-decoration: none;
+  cursor: pointer;
 
   :hover {
     opacity: 0.4;
@@ -62,3 +62,4 @@ h2 {
   object-fit: contain;
   padding: 3px;
 }
+

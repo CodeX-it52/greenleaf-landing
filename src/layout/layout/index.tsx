@@ -9,10 +9,11 @@ const Layout : React.FC<ComponentProps> = ({children}) => {
     return (
         <>
             <Header/>
+            <div className={"main"}>
             <main>{children}</main>
+            </div>
             <Footer />
         </>
     )
 }
-
 export default Layout;

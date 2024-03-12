@@ -6,14 +6,14 @@ const Home = React.lazy(() => import("@pages/home"));
 
 const App: React.FC = () => {
   return (
-    <div className={"body"}>
-      <SEO title={"GreenLeaf"} description={""} keywords={[""]} />
-      <Layout>
-        <Routes>
-          <Route path={"/"} element={<Home />} />
-        </Routes>
-      </Layout>
-    </div>
+      <div className={"body"}>
+          <SEO title={"GreenLeaf"} description={""} keywords={[""]}/>
+              <Layout>
+                  <Routes>
+                      <Route path={"/"} element={<Home/>}/>
+                  </Routes>
+              </Layout>
+      </div>
   );
 }
 
