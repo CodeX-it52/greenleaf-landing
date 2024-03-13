@@ -1,0 +1,12 @@
+@use "@scss/variables" as *;
+
+.marker {
+  font-size: 16px;
+  color: $main-green;
+  border-radius: 0 20px 0 20px;
+  border: 1px solid $main-green;
+  padding: 10px 20px;
+  text-transform: uppercase;
+  font-weight: 500;
+  max-height: 24px;
+}

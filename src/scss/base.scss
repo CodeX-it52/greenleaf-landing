@@ -30,6 +30,7 @@ h2 {
   @extend %text;
   font-weight: 550;
   font-size: 32px;
+  line-height: 120%;
 
   @media screen and (max-width: 1023px) {
     font-size: 24px;
@@ -38,8 +39,9 @@ h2 {
 
 .text_m {
   @extend %text;
-  font-weight: 400;
+  font-weight: 500;
   font-size: 20px;
+  line-height: 130%;
 
   @media scren and (max-width: 1023px) {
     font-size: 14px;
@@ -50,6 +52,7 @@ h2 {
   @extend %text;
   font-weight: 400;
   font-size: 18px;
+  line-height: 130%;
 
   @media screen and (max-width: 1023px) {
     font-size: 14px;

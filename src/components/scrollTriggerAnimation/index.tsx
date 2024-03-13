@@ -2,20 +2,30 @@ import React, {ReactNode} from "react";
 import {motion} from "framer-motion";
 
 interface ComponentProps {
-    children: ReactNode
+    children: ReactNode,
+    visibleSetting: {
+        opacity: number,
+        secondParam: string,
+        paramNumber: number,
+    },
+    hiddenSetting: {
+        opacity: number,
+        secondParam: string,
+        paramNumber: number,
+    },
 }
 
-const ScrollTriggerAnimation: React.FC<ComponentProps> = ({children}) => {
+const ScrollTriggerAnimation: React.FC<ComponentProps> = ({children, visibleSetting, hiddenSetting}) => {
 
     return (
         <motion.div
             initial={"hidden"}
             viewport={{once: true}}
-            transition={{duration: 0.7}}
+            transition={{duration: 0.5}}
             whileInView={"visible"}
             variants={{
-                visible: { opacity: 1, y: 0 },
-                hidden: { opacity: 0, y: 50 }
+                visible: { opacity: visibleSetting.opacity, [visibleSetting.secondParam]: visibleSetting.paramNumber },
+                hidden: { opacity: hiddenSetting.opacity, [hiddenSetting.secondParam]: hiddenSetting.paramNumber }
             }}
         >
             {children}

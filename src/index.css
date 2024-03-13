@@ -8,3 +8,5 @@
 @import url("@layout/header/header.scss");
 @import url("@components/navigation/navigation.scss");
 @import url("@components/main/main.scss");
+@import url("@components/marker/marker.scss");
+@import url("@components/purposes/purposes.scss");

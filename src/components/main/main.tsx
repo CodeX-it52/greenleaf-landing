@@ -2,10 +2,23 @@ import React from "react";
 import ScrollTriggerAnimation from "@components/scrollTriggerAnimation";
 import BlinkAnimationComponent from "@components/blinkAnimationComponent";
 
+const visibleSetting = {
+    opacity: 1,
+    secondParam: 'x',
+    paramNumber: 0
+}
+
+const hiddenSetting = {
+    opacity: 0,
+    secondParam: 'x',
+    paramNumber: 50
+}
+
 const Main: React.FC = () => {
     return (
-        <ScrollTriggerAnimation>
+        <ScrollTriggerAnimation visibleSetting={visibleSetting} hiddenSetting={hiddenSetting}>
             <section className={"cover"} id={"#"}>
+                <ScrollTriggerAnimation visibleSetting={{opacity: 1, secondParam: 'x', paramNumber: 0}} hiddenSetting={{opacity: 1, secondParam: 'x', paramNumber: -100}}>
                 <div className={"cover__description"}>
                     <h1 className={"cover__title"}>Управляйте будущим ростом с&nbsp;<span
                         className={"cover__title-span"}>GreenLeaf</span></h1>
@@ -14,6 +27,7 @@ const Main: React.FC = () => {
                         управления</p>
                     <button className={"cover__btn link"}>Оставить заявку</button>
                 </div>
+                </ScrollTriggerAnimation>
                 <BlinkAnimationComponent>
                 <div className={"cover__images-container"}>
                 </div>
