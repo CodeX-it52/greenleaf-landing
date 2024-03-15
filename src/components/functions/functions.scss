@@ -1,0 +1,187 @@
+@use "@scss/variables" as *;
+
+.functions {
+  width: 100%;
+  padding: 90px 0;
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+
+  @media screen and (max-width: 1023px) {
+    padding: 45px 0;
+  }}
+
+.functions__subtitle {
+  text-align: center;
+  font-weight: 400;
+  max-width: 861px;
+  margin: 65px auto 45px auto;
+}
+
+.functions__container {
+  margin: 0 auto;
+  width: 100%;
+  max-width: 100%;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(calc(100% / 4 - 20px * 3), 300px));
+  grid-template-rows: repeat(2, 350px);
+  gap: 20px;
+  justify-content: center;
+  align-content: center;
+  grid-template-areas:
+    "benefit benefit workers function_control"
+    "distant function_reduce logs education";
+}
+
+.function {
+  width: calc(100% - 20px * 2);
+  border-radius: 25px;
+  border: 2px solid $main-green;
+  padding: 45px 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+  cursor: pointer;
+  transition: all 0.5s ease-in;
+}
+
+
+.function__title {
+  text-transform: uppercase;
+  margin-left: 40px;
+  transition: all 0.5s ease-in;
+}
+
+.function__marker {
+  position: absolute;
+  top: 45px;
+  left: 20px;
+  content: "";
+  width: 20px;
+  height: 20px;
+  background: $main-green;
+  border-radius: 25px;
+  transition: all 0.5s ease-in;
+}
+
+.function_benefit {
+  grid-area: benefit;
+}
+.function_workers {
+  grid-area: workers;
+}
+.function_control {
+  grid-area: function_control;
+}
+.function_distant {
+  grid-area: distant;
+}
+.function_reduce {
+  grid-area: function_reduce;
+}
+.function_logs {
+  grid-area: logs;
+}
+.function_education {
+  grid-area: education;
+}
+
+.function__content {
+  background-position: center;
+  background-repeat: no-repeat;
+  align-self: center;
+  justify-self: center;
+}
+
+.function__content_benefit {
+  background-image: url("@images/icon_benefit.svg");
+  max-width: 233px;
+  width: 100%;
+  height: 100%;
+  background-size: 100%;
+  max-height: 181px;
+}
+.function__content_workers {
+  background-image: url("@images/icon_workers.svg");
+  max-width: 150px;
+  width: 100%;
+  height: 100%;
+  background-size: 100%;
+  max-height: 150px;
+}
+.function__content_control {
+  background-image: url("@images/icon_control.svg");
+  max-width: 150px;
+  width: 100%;
+  height: 100%;
+  background-size: 100%;
+  max-height: 178px;
+}
+.function__content_distant {
+  background-image: url("@images/icon_distant.svg");
+  max-width: 113px;
+  width: 100%;
+  height: 100%;
+  background-size: 100%;
+  max-height: 135px;
+}
+.function__content_reduce {
+  background-image: url("@images/icon_reduce.svg");
+  max-width: 150px;
+  width: 100%;
+  height: 100%;
+  background-size: 100%;
+  max-height: 150px;
+}
+.function__content_logs {
+  background-image: url("@images/icon_logs.svg");
+  max-width: 185px;
+  width: 100%;
+  height: 100%;
+  background-size: 100%;
+  max-height: 181px;
+}
+
+.function__content_education {
+  background-image: url("@images/icon_education.svg");
+  max-width: 133px;
+  width: 100%;
+  height: 100%;
+  background-size: 100%;
+  max-height: 157px;
+}
+
+.function__description {
+  display: none;
+  visibility: hidden;
+  color: white;
+  font-size: 16px;
+  font-weight: 400;
+  transition: all 0.5s ease-in;
+}
+
+.function:hover {
+  background-color: $main-green;
+  padding-bottom: 25px;
+  transition: all 0.5s ease-in;
+
+  .function__title {
+    color: white;
+  }
+
+  .function__marker {
+    background-color: white;
+  }
+
+  .function__content {
+    display: none;
+    visibility: hidden;
+  }
+
+  .function__description {
+    display: block;
+    visibility: visible;
+  }
+}
+

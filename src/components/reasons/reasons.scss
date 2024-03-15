@@ -1,0 +1,57 @@
+@use "@scss/variables" as *;
+
+.reasons {
+  width: 100%;
+  padding: 90px 0;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 66px;
+}
+
+.reasons__container {
+  display: flex;
+  flex-direction: column;
+  gap: 35px;
+  padding-left: 0;
+  margin: 0;
+}
+
+.reason {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+  list-style-type: none;
+  padding-bottom: 37px;
+}
+
+.reason__title-container {
+  display: flex;
+  flex-direction: row;
+  gap: 40px;
+}
+
+.reason__title {
+  text-transform: uppercase;
+  color: $main-green;
+  padding-top: 15px;
+}
+
+.reason__marker {
+  display: flex;
+  content: "";
+  width: 20px;
+  height: calc(100% + 37px);
+  background-color: $main-green;
+  border-radius: 25px;
+}
+
+.reason__description {
+  max-width: 583px;
+  margin: 0;
+  padding-top: 15px;
+}
+
+
+

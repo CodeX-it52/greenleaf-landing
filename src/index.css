@@ -10,3 +10,6 @@
 @import url("@components/main/main.scss");
 @import url("@components/marker/marker.scss");
 @import url("@components/purposes/purposes.scss");
+@import url("@components/about-team/aboutTeam.scss");
+@import url("@components/reasons/reasons.scss");
+@import url("@components/functions/functions.scss");

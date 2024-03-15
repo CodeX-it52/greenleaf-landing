@@ -1,10 +1,14 @@
+import React from "react";
 import Marker from "@components/marker/marker.tsx";
 
 const Purposes: React.FC = () => {
     return (
         <section className={"purposes"}>
-            <div className={"purposes__title-container"}>
-                <h2 className="purposes__title"><span className={"purposes__span"}>Упростим</span> процесс выращивания растений и&nbsp;поможем Вам достичь <span className={"purposes__span"}>результатов</span></h2>
+            <div className={"title-container"}>
+                <h2 className="title-container__title"><span className={"title-container__span"}>Упростим</span> процесс
+                    выращивания
+                    растений и&nbsp;поможем Вам достичь <span className={"title-container__span"}>результатов</span>
+                </h2>
                 <Marker markerText={"Наши цели"}/>
             </div>
             <div className="purposes__items">
@@ -36,14 +40,14 @@ const Purposes: React.FC = () => {
                         <p className={"text_m item__number"}>04</p>
                         <p className={"text_m item__title"}>Обеспечение доступности и простоты использования</p>
                     </div>
-                    <p className={"text_s item__description"}>Мы стремимся сделать гидропонику доступной для всех. Наша цель - предоставить интуитивно понятные и легко используемые инструменты управления гидропонными теплицами</p>
+                    <p className={"text_s item__description"}>Мы&nbsp;стремимся сделать гидропонику доступной для всех. Наша цель&nbsp;&mdash; предоставить интуитивно понятные и&nbsp;легко используемые инструменты управления гидропонными теплицами.</p>
                 </div>
                 <div className={"item"}>
                     <div className={"item__title-container"}>
                         <p className={"text_m item__number"}>05</p>
                         <p className={"text_m item__title"}>Поддержка и обучение</p>
                     </div>
-                    <p className={"text_s item__description"}>Мы ценим наших клиентов и стремимся предоставить им высокий уровень поддержки. Мы предлагаем обучающие материалы, руководства и персонализированную помощь, чтобы помочь нашим клиентам достичь желаемых результатов.</p>
+                    <p className={"text_s item__description"}>Мы&nbsp;ценим наших клиентов и&nbsp;стремимся предоставить им&nbsp;высокий уровень поддержки. Мы&nbsp;предлагаем обучающие материалы, руководства и&nbsp;персонализированную помощь, чтобы помочь нашим клиентам достичь желаемых результатов.</p>
                 </div>
             </div>
         </section>
