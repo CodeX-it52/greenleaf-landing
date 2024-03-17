@@ -5,6 +5,7 @@ import AboutTeam from "@components/about-team";
 import Reasons from "@components/reasons";
 import Functions from "@components/functions";
 import Carousel from "@components/carousel";
+import ContactForm from "@components/contact-form/index.tsx"
 
 const Home: React.FC = () => {
 
@@ -18,6 +19,7 @@ const Home: React.FC = () => {
             <section className={"carousel"}>
                 <Carousel />
             </section>
+            <ContactForm />
         </>
     )
 }

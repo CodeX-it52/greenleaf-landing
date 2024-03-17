@@ -1,0 +1,143 @@
+@use "@scss/variables" as *;
+.contact-form {
+  width: 100%;
+  padding: 90px 0;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 51px;
+}
+
+.contact-form__title {
+  padding: 25px 0;
+  max-width: 440px;
+  height: 100%;
+  text-transform: uppercase;
+}
+
+.form-container__title_g {
+  color: $main-green;
+  padding: 0;
+}
+
+.contact-form__title-container {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  gap: 40px;
+}
+
+.reason__marker_contact {
+  height: calc(76px + 25px * 2);
+  max-height: 150px;
+}
+
+.form-container {
+  display: flex;
+  flex-direction: column;
+  gap: 45px;
+}
+
+.form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  max-width: 940px;
+}
+
+.form__input {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.form__area {
+  all: unset;
+  width: calc(100% - 30px * 2);
+  padding: 20px 30px;
+  border: 1px solid $main-green;
+  border-radius: 15px;
+  font-size: 18px;
+  font-family: inherit;
+  font-weight: 400;
+}
+
+.form__area_text {
+  max-height: 150px;
+  height: calc(150px - 40px);
+}
+
+.form__error {
+  padding-left: 30px;
+  color: $main-green;
+}
+
+.form__area_error {
+  border: 1px solid #50B05A;
+}
+
+.form-container__btn-container {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 940px;
+}
+
+.form-container__links {
+  display: flex;
+  gap: 30px;
+}
+
+.form-container__btn {
+  all: unset;
+  max-width: calc(520px - 320px);
+  width: 100%;
+  text-transform: uppercase;
+  font-family: inherit;
+  background-color: $main-green;
+  padding: 20px 160px;
+  color: white;
+  border-radius: 50px 0 50px 0;
+  font-size: 20px;
+  text-align: center;
+  transition: all 0.4s ease-in-out;
+  cursor: pointer;
+}
+
+.form-container__btn:hover {
+  opacity: 0.7;
+  transition: all 0.4s ease-in-out;
+}
+
+.form-container__btn:disabled {
+  background-color: gray;
+  cursor: default;
+}
+
+.form-container__link_wu {
+  background-image: url("@images/WhatsApp.svg");
+}
+
+.form-container__link_tg {
+  background-image: url("@images/Telegram.svg");
+}
+
+.form-container__link {
+  content: "";
+  background-size: 50px;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 50px;
+  height: 50px;
+  padding: 5px;
+  transition: all 0.4s ease-in-out;
+  cursor: pointer;
+}
+
+.form-container__link:hover {
+  opacity: 0.7;
+  transition: all 0.4s ease-in-out;
+}

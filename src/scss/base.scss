@@ -8,11 +8,11 @@ html {
 .link {
   text-decoration: none;
   cursor: pointer;
+}
 
-  :hover {
-    opacity: 0.4;
-    transition: opacity 0.3s ease-in-out;
-  }
+.link:hover {
+  opacity: 0.4;
+  transition: opacity 0.3s ease-in-out;
 }
 
 h1 {

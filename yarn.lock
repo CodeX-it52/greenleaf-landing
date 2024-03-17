@@ -5123,6 +5123,11 @@ util@^0.11.0:
   dependencies:
     inherits "2.0.3"
 
+validator@^13.11.0:
+  version "13.11.0"
+  resolved "http://npm.prakticum-team.ru/validator/-/validator-13.11.0.tgz#23ab3fd59290c61248364eabf4067f04955fbb1b"
+  integrity sha512-Ii+sehpSfZy+At5nPdnyMhx78fEoPDkR2XW/zimHEL3MyGJQOCQ7WeP20jPYRz7ZCpcKLB21NxuXHF3bxjStBQ==
+
 vite@^5.1.4:
   version "5.1.5"
   resolved "http://npm.prakticum-team.ru/vite/-/vite-5.1.5.tgz#bdbc2b15e8000d9cc5172f059201178f9c9de5fb"
