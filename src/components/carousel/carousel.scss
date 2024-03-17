@@ -1,0 +1,117 @@
+@use "@scss/variables" as *;
+
+.carousel {
+  padding: 90px 0;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.card {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 100px;
+  cursor: grab;
+}
+
+.card__marker {
+  align-self: flex-end;
+}
+
+.card__container {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.card__description-container {
+  max-width: 429px;
+  display: flex;
+  flex-direction: column;
+  gap: 46px;
+}
+
+.card__description {
+  font-weight: 400;
+  max-width: 429px;
+}
+
+.card__img {
+  object-position: center;
+  object-fit: contain;
+  max-width: 630px;
+  max-height: 450px;
+  height: auto;
+  width: 100%;
+}
+
+.card__item {
+  font-size: 20px;
+  font-family: inherit;
+  font-weight: 400;
+}
+
+.carousel__manipulate {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.arrows {
+  display: flex;
+  gap: 40px;
+  align-items: center;
+}
+
+.arrow {
+  width: 7px;
+  height: 14px;
+  background-size: 7px 14px;
+  background-repeat: no-repeat;
+  background-position: center;
+  transition: all 0.4s  ease-in-out;
+  cursor: pointer;
+  
+  :hover {
+    transition: all 0.4s  ease-in-out;
+  }
+}
+
+.arrow--left {
+  background-image: url("@images/arrow_left.svg");
+
+}
+
+.arrow--left:hover {
+  background-image: url("@images/arrow_left_green.svg");
+}
+
+.arrow--right {
+  background-image: url("@images/arrow_right.svg");
+
+}
+
+.arrow--right:hover {
+  background-image: url("@images/arrow_right_green.svg");
+}
+
+.bullets {
+
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: 1px;
+  background-color: black;
+}
+
+.bullet {
+  width: calc(100% / 10);
+  height: 5px;
+  border-radius: 5px;
+  margin-top: -2px;
+  transition: all 0.3s ease-in;
+}
+
