@@ -9,4 +9,14 @@
   text-transform: uppercase;
   font-weight: 500;
   max-height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  @media screen and (max-width: 1023px) {
+    padding: 2px 20px;
+    font-size: 10px;
+    width: 100%;
+    max-width: calc(105px - 40px);
+  }
 }

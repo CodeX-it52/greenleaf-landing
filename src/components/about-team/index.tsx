@@ -4,7 +4,7 @@ import Team from "@images/team.svg";
 
 const AboutTeam: React.FC = () => {
     return (
-        <section className={"team"}>
+        <section className={"team"} id={"about"}>
             <div className={"title-container"}>
                 <h2 className="title-container__title">Мы&nbsp;делаем <span className={"title-container__span"}>GreenLeaf</span><br/>возможным</h2>
                 <Marker markerText={"команда"}/>

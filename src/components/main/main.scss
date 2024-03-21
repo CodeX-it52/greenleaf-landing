@@ -2,12 +2,21 @@
 
 .cover {
   width: 100%;
+  margin: 0 auto;
   position: relative;
   padding: 90px 0;
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
+
+  @media screen and (max-width: 1023px) {
+    padding: 47px 0;
+  }
+
+  @media screen and (max-width: 576px) {
+    padding: 45px 0;
+  }
 }
 
 .cover__description {
@@ -15,6 +24,16 @@
   display: flex;
   flex-direction: column;
   gap: 36px;
+
+  @media screen and (max-width: 1023px) {
+    max-width: 477px;
+    gap: 25px;
+  }
+
+  @media screen and (max-width: 576px) {
+    max-width: 100%;
+    gap: 30px;
+  }
 }
 
 .cover__title-span {
@@ -24,10 +43,18 @@
 .cover__title {
   line-height: 105%;
   margin-bottom: calc(60px - 36px);
+
+  @media screen and (max-width: 1023px) {
+    margin-bottom: 0;
+  }
 }
 
 .cover__subtitle {
   max-width: 511px;
+
+  @media screen and (max-width: 1023px) {
+    max-width: 347px;
+  }
 }
 
 .cover__btn {
@@ -42,6 +69,11 @@
   border-radius: 20px 0 20px 0;
   font-size: 20px;
   text-align: center;
+
+  @media screen and (max-width: 1023px) {
+    display: none;
+    visibility: hidden;
+  }
 }
 
 .cover__images-container {
@@ -56,6 +88,14 @@
   top: 60px;
   right: -40px;
   z-index: -1;
+
+  @media screen and (max-width: 1023px) {
+    width: 100%;
+    max-width: 755px;
+    height: 378px;
+    background-size: 755px 378px;
+    left: 16px;
+  }
 }
 
 .cover__dekstop {
@@ -67,5 +107,13 @@
   height: 430px;
   background-size: 586px 430px;
   margin-right: -90px;
+  background-repeat: no-repeat;
+  background-position: center;
   z-index: 1;
+
+  @media screen and (max-width: 1023px) {
+    margin-right: -220px;
+    overflow: hidden;
+    background-size: 440px 322px;
+  }
 }

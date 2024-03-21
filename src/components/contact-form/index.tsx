@@ -1,4 +1,5 @@
 import React from "react";
+// @ts-expect-error
 import {useFormWithValidation} from "@hooks/useFormWithValidation.jsx";
 import {Link} from "react-router-dom";
 
@@ -20,7 +21,7 @@ const ContactForm: React.FC = () => {
     }, [resetForm])
 
     return (
-        <section className={"contact-form"}>
+        <section className={"contact-form"} id={"contacts"}>
         <div className={"contact-form__title-container"}>
             <div className={"reason__marker reason__marker_contact"}></div>
             <h2 className={"contact-form__title"}>Заинтересовались нашей компанией?</h2>

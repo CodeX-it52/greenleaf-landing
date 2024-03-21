@@ -3,7 +3,7 @@ import Marker from "@components/marker/marker.tsx";
 
 const Functions: React.FC = () => {
     return (
-        <section className={"functions"}>
+        <section className={"functions"} id={"project"}>
             <div className={"title-container"}>
                 <h2 className="title-container__title">
                     самый широкий спектр <span className={"title-container__span"}>функций</span></h2>
