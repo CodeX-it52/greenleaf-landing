@@ -8,14 +8,28 @@
   margin: 0 auto;
 
   @media screen and (max-width: 1023px) {
+    padding: 47px 0;
+  }
+  @media screen and (max-width: 576px) {
     padding: 45px 0;
-  }}
+  }
+}
 
 .functions__subtitle {
   text-align: center;
   font-weight: 400;
   max-width: 861px;
   margin: 65px auto 45px auto;
+
+  @media screen and (max-width: 1023px) {
+    margin: 50px 0 35px 0;
+    max-width: 518px;
+    text-align: left;
+  }
+
+  @media screen and (max-width: 576px) {
+    margin: 35px 0 30px 0;
+  }
 }
 
 .functions__container {
@@ -31,6 +45,20 @@
   grid-template-areas:
     "benefit benefit workers function_control"
     "distant function_reduce logs education";
+
+  @media screen and (max-width: 1023px) {
+    grid-template-columns: repeat(2, calc(100% / 2 - 10px));
+    grid-template-rows: repeat(4, minmax(177px, 200px));
+    grid-template-areas: none;
+    gap: 10px;
+  }
+
+  @media screen and (max-width: 576px) {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+  }
 }
 
 .function {
@@ -44,6 +72,19 @@
   position: relative;
   cursor: pointer;
   transition: all 0.5s ease-in;
+
+  @media screen and (max-width: 1023px) {
+    cursor: default;
+    padding: 25px 15px 15px 15px;
+    width: calc(100% - 15px * 2);
+    border: none;
+  }
+
+  @media screen and (max-width: 576px) {
+    width: calc(100% - 13px * 2);
+    padding: 25px 13px;
+    gap: 20px;
+  }
 }
 
 
@@ -63,28 +104,62 @@
   background: $main-green;
   border-radius: 25px;
   transition: all 0.5s ease-in;
+
+  @media screen and (max-width: 1023px) {
+    width: 10px;
+    height: 10px;
+    top: 25px;
+    left: 15px;
+  }
 }
 
 .function_benefit {
   grid-area: benefit;
+
+  @media screen and (max-width: 1023px) {
+    grid-area: unset;
+  }
 }
 .function_workers {
   grid-area: workers;
+  @media screen and (max-width: 1023px) {
+    grid-area: unset;
+  }
 }
 .function_control {
   grid-area: function_control;
+
+  @media screen and (max-width: 1023px) {
+    grid-area: unset;
+  }
 }
 .function_distant {
   grid-area: distant;
+
+  @media screen and (max-width: 1023px) {
+    grid-area: unset;
+  }
 }
 .function_reduce {
   grid-area: function_reduce;
+
+  @media screen and (max-width: 1023px) {
+    grid-area: unset;
+  }
 }
 .function_logs {
   grid-area: logs;
+
+  @media screen and (max-width: 1023px) {
+    grid-area: unset;
+  }
 }
 .function_education {
   grid-area: education;
+
+  @media screen and (max-width: 1023px) {
+    grid-area: unset;
+  }
 }
 
 .function__content {
@@ -182,6 +257,43 @@
   .function__description {
     display: block;
     visibility: visible;
+  }
+}
+
+@media screen and (max-width: 1023px) {
+  .function__title {
+    color: white;
+    margin-left: 25px;
+    max-width: 152px;
+  }
+
+  .function__marker {
+    background-color: white;
+  }
+
+  .function__content {
+    display: none;
+    visibility: hidden;
+  }
+
+  .function__description {
+    display: block;
+    visibility: visible;
+    font-size: 12px;
+  }
+
+  .function {
+    background-color: $main-green;
+    padding-bottom: 25px;
+    transition: unset;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .function__title {
+    margin-left: 20px;
+    max-width: unset;
+    width: 100%;
   }
 }
 

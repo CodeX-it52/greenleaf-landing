@@ -20,6 +20,11 @@
   border-bottom: 1px solid $main-green;
   gap: 35px;
   padding-bottom: 60px;
+
+  @media screen and (max-width: 1023px) {
+    gap: 24px;
+    padding-bottom: 24px;
+  }
 }
 
 .item {
@@ -29,24 +34,81 @@
   justify-content: space-between;
   border-top: 1px solid $main-green;
   padding-top: 35px;
+
+  @media screen and (max-width: 1023px) {
+    padding-top: 24px;
+  }
 }
 
 .item__title {
   text-transform: uppercase;
   max-width: 336px;
+
+  @media screen and (max-width: 1023px) {
+    width: 100%;
+    max-width: 100%;
+    font-size: 16px;
+    font-weight: 400;
+  }
 }
 
 .item__title-container {
+
   display: flex;
   flex-direction: row;
   gap: 37px;
+
+  @media screen and (max-width: 1023px) {
+    gap: unset;
+    justify-content: space-between;
+    width: 100%;
+  }
+}
+
+.item__number-container {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  gap: 15px;
 }
 
 .item__number {
   color: $main-green;
+
+  @media screen and (max-width: 1023px) {
+    font-size: 16px;
+    font-weight: 400;
+  }
 }
 
 .item__description {
   max-width: 620px;
   padding-right: 30px;
+
+  @media screen and (max-width: 1023px) {
+    max-width: 484px;
+    width: 100%;
+    margin-top: 35px;
+    margin-left: 34px;
+    font-size: 14px;
+    padding-right: 0;
+  }
+}
+
+.item__btn {
+  content: "";
+  cursor: pointer;
+  background-position: center;
+  background-repeat: no-repeat;
+  max-width: 17px;
+  max-height: 17px;
+  width: 100%;
+  height: auto;
+  background-image: url("@images/open_btn.svg");
+  transition: all 0.3s ease-in;
+}
+
+.item__btn_on {
+  transform: rotate(45deg);
+  transition: all 0.3s ease-in;
 }
