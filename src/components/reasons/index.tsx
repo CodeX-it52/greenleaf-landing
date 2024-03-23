@@ -46,6 +46,7 @@ const Reasons: React.FC = () => {
             ) : (
                 <ul className={"reasons__container"}>
                     <li className={"reason"}>
+                        <div className={"reason__title-container"}>
                             <div className={"reason__marker"}></div>
                             <div className={"reason__title-container reason__title-container_m"}>
                                 <p className={"text_m reason__title"}>Технологичность</p>
@@ -56,13 +57,18 @@ const Reasons: React.FC = () => {
                                     в&nbsp;выращивании
                                     растений в&nbsp;гидропонных системах.</p>
                             </div>
+                        </div>
+
                     </li>
                     <li className={"reason"}>
                         <div className={"reason__title-container"}>
                             <div className={"reason__marker"}></div>
                             <div className={"reason__title-container reason__title-container_m"}>
                                 <p className={"text_m reason__title"}>Эффективность</p>
-                                <p className={"text_s reason__description"}>Мы&nbsp;предлагаем широкий спектр функций, позволяющих контролировать и&nbsp;оптимизировать условия выращивания растений в&nbsp;гидропонных системах. Наша система обеспечивает непрерывный контроль и&nbsp;регулировку, что позволяет создавать оптимальные условия для роста и&nbsp;развития растений.</p>
+                                <p className={"text_s reason__description"}>Мы&nbsp;предлагаем широкий спектр функций,
+                                    позволяющих контролировать и&nbsp;оптимизировать условия выращивания растений
+                                    в&nbsp;гидропонных системах. Наша система обеспечивает непрерывный контроль
+                                    и&nbsp;регулировку, что позволяет создавать оптимальные условия для роста и&nbsp;развития растений.</p>
                             </div>
                         </div>
                     </li>

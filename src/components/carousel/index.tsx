@@ -1,7 +1,7 @@
 import React from "react";
 import {motion, AnimatePresence} from "framer-motion";
 import Marker from "@components/marker/marker.tsx"
-
+import {useResize} from "@hooks/useResize.tsx";
 import FirstPage from "@images/1_page.png";
 import SecondPage from "@images/2_page.png"
 import ThirdPage from "@images/3_page.png"
@@ -19,7 +19,7 @@ const cards_gh = [
         <div className={"card__marker"}><Marker markerText={"о приложении"}/></div>
         <div className={"card__container"}>
             <div className={"card__description-container"}>
-                <h2 className="title-container__title">
+                <h2 className="title-container__title title-container__title_m">
                     <span className={"title-container__span"}>минималистичный</span> дизайн приложения</h2>
                     <p className={"text_m card__description"}>Понятный и&nbsp;лаконичный интерфейс без большого количества деталей и&nbsp;лишних кнопок. Малое количество основных экранов делает навигацию в&nbsp;приложении по-настоящему простой.</p>
             </div>
@@ -30,7 +30,7 @@ const cards_gh = [
         <div className={"card__marker"}><Marker markerText={"о приложении"}/></div>
         <div className={"card__container"}>
             <div className={"card__description-container"}>
-                <h2 className="title-container__title">
+                <h2 className="title-container__title title-container__title_m">
                     <span className={"title-container__span"}>напомним</span> о&nbsp;созревании растений</h2>
                 <p className={"text_m card__description"}>Календарь позволяет отслеживать созревания растений, добавлять различные напоминания об&nbsp;особенностях ухода за&nbsp;растениями, а&nbsp;также создавать новые посадки.</p>
             </div>
@@ -41,7 +41,7 @@ const cards_gh = [
         <div className={"card__marker"}><Marker markerText={"о приложении"}/></div>
         <div className={"card__container"}>
             <div className={"card__description-container"}>
-                <h2 className="title-container__title">
+                <h2 className="title-container__title title-container__title_m">
                     <span className={"title-container__span"}>Привязка контроллера</span> в&nbsp;два клика</h2>
                 <p className={"text_m card__description"}>Каждый контроллер имеет свой уникальный QR-код, контроллер привязывается к&nbsp;приложению посредством считывания QR-кода с&nbsp;помощью камеры телефона.</p>
             </div>
@@ -52,7 +52,7 @@ const cards_gh = [
         <div className={"card__marker"}><Marker markerText={"о приложении"}/></div>
         <div className={"card__container"}>
             <div className={"card__description-container"}>
-                <h2 className="title-container__title">
+                <h2 className="title-container__title title-container__title_m">
                     <span className={"title-container__span"}>Повторяйте посадку</span> с&nbsp;прошлыми значениями</h2>
                 <p className={"text_m card__description"}>Создайте шаблон при выставлении значений. В&nbsp;следующий раз шаблон поможет выставить значения сохраненные с&nbsp;прошлого раза. Это сократит время при формировании повторных посадок.</p>
             </div>
@@ -63,7 +63,7 @@ const cards_gh = [
         <div className={"card__marker"}><Marker markerText={"о приложении"}/></div>
         <div className={"card__container"}>
             <div className={"card__description-container"}>
-                <h2 className="title-container__title">
+                <h2 className="title-container__title title-container__title_m">
                     <span className={"title-container__span"}>Создайте условия</span> для роста растений</h2>
                 <p className={"text_m card__description"}>Пользователь создает посадку и&nbsp;задает значения датчиков. Заданные значения будут поддерживаться в&nbsp;теплице. По&nbsp;данным значениям можно создать шаблон и&nbsp;использовать его при создании других посадок.</p>
             </div>
@@ -74,7 +74,7 @@ const cards_gh = [
         <div className={"card__marker"}><Marker markerText={"о приложении"}/></div>
         <div className={"card__container"}>
             <div className={"card__description-container"}>
-                <h2 className="title-container__title">
+                <h2 className="title-container__title title-container__title_m">
                     <span className={"title-container__span"}>Отслеживайте</span> статус теплиц</h2>
                 <p className={"text_m card__description"}>На&nbsp;экране отображаются адреса теплиц и&nbsp;их&nbsp;статусы посадок, также можно узнать историю посадок в&nbsp;определенной теплице.</p>
             </div>
@@ -85,7 +85,7 @@ const cards_gh = [
         <div className={"card__marker"}><Marker markerText={"о приложении"}/></div>
         <div className={"card__container"}>
             <div className={"card__description-container"}>
-                <h2 className="title-container__title">
+                <h2 className="title-container__title title-container__title_m">
                     <span className={"title-container__span"}>Следите за&nbsp;показателями</span> и&nbsp;собирайте статистику</h2>
                 <p className={"text_m card__description"}>График отображает показатели с&nbsp;датчиков за&nbsp;указанный пользователем промежуток времени. Ниже отображаются показатели в&nbsp;реальном времени.</p>
             </div>
@@ -96,7 +96,7 @@ const cards_gh = [
         <div className={"card__marker"}><Marker markerText={"о приложении"}/></div>
         <div className={"card__container"}>
             <div className={"card__description-container"}>
-                <h2 className="title-container__title">
+                <h2 className="title-container__title title-container__title_m">
                     <span className={"title-container__span"}>Будьте в курсе</span> событий</h2>
                 <div className={"card__list"}>
                     <p className={"text_m card__description"}>В&nbsp;приложение предусмотрено два типа оповещений: </p>
@@ -114,7 +114,7 @@ const cards_gh = [
         <div className={"card__marker"}><Marker markerText={"о приложении"}/></div>
         <div className={"card__container"}>
             <div className={"card__description-container"}>
-                <h2 className="title-container__title">
+                <h2 className="title-container__title title-container__title_m">
                     <span className={"title-container__span"}>Всегда найдется</span> решение</h2>
                 <p className={"text_m card__description"}>В&nbsp;приложении интегрировано подробное руководство пользователя, а&nbsp;также существует техническая поддержка.</p>
             </div>
@@ -124,7 +124,7 @@ const cards_gh = [
         <div className={"card__marker"}><Marker markerText={"о приложении"}/></div>
         <div className={"card__container"}>
             <div className={"card__description-container"}>
-                <h2 className="title-container__title">
+                <h2 className="title-container__title title-container__title_m">
                     <span className={"title-container__span"}>Решим ваш вопрос</span></h2>
                 <p className={"text_m card__description"}>В&nbsp;случае ошибки или иной неполадки сообщите о&nbsp;ней внутри приложении. Наша команда безотлагательно обработает ваш запрос и&nbsp;решит его в&nbsp;первостепенном порядке.</p>
             </div>
@@ -147,6 +147,7 @@ const bulletVariants = {
 
 const Carousel: React.FC = ({type}) => {
     const [cards, setCards] = React.useState([]);
+    const {width} = useResize();
 
     React.useEffect(() => {
         let newCards = [];
@@ -223,21 +224,24 @@ const Carousel: React.FC = ({type}) => {
 
             <div className={"carousel__manipulate"}>
                 <motion.div className={'arrows'}>
-                    <motion.div
+                    {width > 576 && (<motion.div
                         className={'arrow arrow--left'}
                         whileTap={{scale: 0.8}}
                         onClick={() => {
                             preventClick(-1);
                         }}
-                    ></motion.div>
-                    <p className={"text_m card__item"}>{page+1 < 10 ? `0${page+1}` : page+1}</p>
-                    <motion.div
+                    ></motion.div>)}
+
+                    <p className={"text_m card__item"}>{page + 1 < 10 ? `0${page + 1}` : page + 1}</p>
+
+                    {width > 576 && (<motion.div
                         className={'arrow arrow--right'}
                         whileTap={{scale: 0.8}}
                         onClick={() => {
                             preventClick(1);
                         }}
-                    ></motion.div>
+                    ></motion.div>)}
+
                 </motion.div>
                 <motion.div className={'bullets'}>
                     {cards?.map((card, index) => {

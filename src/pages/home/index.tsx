@@ -1,4 +1,5 @@
 import React from "react";
+import {useResize} from "@hooks/useResize.tsx";
 import Main from "@components/main/main.tsx";
 import Purposes from "@components/purposes";
 import AboutTeam from "@components/about-team";
@@ -7,8 +8,9 @@ import Functions from "@components/functions";
 import Carousel from "@components/carousel";
 import ContactForm from "@components/contact-form/index.tsx"
 
-const Home: React.FC = () => {
 
+const Home: React.FC = () => {
+const {width} = useResize();
     return (
         <>
             <Main />
@@ -17,9 +19,13 @@ const Home: React.FC = () => {
             <Reasons/>
             <Functions />
             <section className={"carousel"}>
-                <Carousel />
+                {width <= 576 && (
+                    <h2 className="title-container__title">
+                        <span className={"title-container__span"}>О приложении</span></h2>
+                )}
+                <Carousel/>
             </section>
-            <ContactForm />
+            <ContactForm/>
         </>
     )
 }

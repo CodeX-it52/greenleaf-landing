@@ -1,6 +1,7 @@
 import React from "react";
 import ScrollTriggerAnimation from "@components/scrollTriggerAnimation";
 import BlinkAnimationComponent from "@components/blinkAnimationComponent";
+import {HashLink} from "react-router-hash-link";
 
 const visibleSetting = {
     opacity: 1,
@@ -25,7 +26,7 @@ const Main: React.FC = () => {
                     <p className={"text_m cover__subtitle"}>Мы&nbsp;автоматизируем процесс выращивания растений
                         в&nbsp;гидропонных системах и&nbsp;предоставим надежные и&nbsp;понятные инструменты
                         управления</p>
-                    <button className={"cover__btn link"}>Оставить заявку</button>
+                    <HashLink to={"/#contacts"} smooth className={"cover__btn link"}>Оставить заявку</HashLink>
                 </div>
                 </ScrollTriggerAnimation>
                 <BlinkAnimationComponent>

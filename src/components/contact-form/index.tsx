@@ -3,19 +3,39 @@ import React from "react";
 import {useFormWithValidation} from "@hooks/useFormWithValidation.jsx";
 import {useResize} from "@hooks/useResize.tsx";
 import {Link} from "react-router-dom";
+import {api} from "@utils/Api.tsx";
 
 
 const ContactForm: React.FC = () => {
-
+    const [success, isSuccess] = React.useState<boolean>(false);
+    const [serverError, isServerError ] =React.useState<boolean>(false);
+    const [tooManyRequests, isTooManyRequests] = React.useState<boolean>(false);
     const {width} = useResize();
     const {values, handleChange, errors, isValid, resetForm} = useFormWithValidation();
 
     function handleSubmit(e) {
         e.preventDefault();
-        console.log(values);
+        api.sendInfo(values.email, values.name, values.phone, values.text).then((data) => {
+            if (data) {
+                isSuccess(true);
+                resetForm();
+            }
+        }).catch((err) => {
+            if (err === 429) {
+                isTooManyRequests(true);
+                isServerError(false);
+            } else {
+                isServerError(true);
+                isTooManyRequests(false);
+            }
+            isSuccess(false);
+        })
     }
 
     React.useEffect(() => {
+        isTooManyRequests(false);
+        isServerError(false);
+
         values.name = "";
         values.email = "";
         values.phone = "";
@@ -62,6 +82,7 @@ const ContactForm: React.FC = () => {
                         <textarea className={"form__area form__area_text"} rows={4} autoComplete={"off"} wrap={"soft"} placeholder={"Сообщение"} name={"text"} maxLength={200} required onChange={handleChange}
                                value={values?.text ?? ""}/>
                     </div>
+                    {success ? (<p className={"form__error"}>Ваша заявка успешно отправлена!</p>) : tooManyRequests ? (<p className={"form__error"}>Слишком много попыток отправки формы. Попробуйте позже.</p>) : serverError && (<p className={"form__error"}>Произошла ошибка</p>)}
                 </div>
                 <div className={"form-container__btn-container"}>
                     <button className={"form-container__btn"} type={"submit"} disabled={!isValid}>оставить заявку
