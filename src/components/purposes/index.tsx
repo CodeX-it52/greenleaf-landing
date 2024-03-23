@@ -1,10 +1,28 @@
 import React from "react";
 import Marker from "@components/marker/marker.tsx";
 import {useResize} from "@hooks/useResize";
+import ScrollTriggerAnimation from "@components/scrollTriggerAnimation";
+import {motion, AnimatePresence} from "framer-motion";
 
+type variantsProps = {
+    open: {
+        opacity: number,
+            x: number
+    },
+    closed: {
+        opacity: number,
+            x: number,
+    }
+}
+
+const variants: variantsProps = {
+    open: {opacity: 1, x: 0},
+    closed: {opacity: 0, x: -100},
+}
 
 const Purposes: React.FC = () => {
     const {width} = useResize();
+
 
     const handleAccordionClick: React.MouseEvent<HTMLDivElement> = (evt) => {
         if (evt.currentTarget.querySelector(".item__btn").classList.contains("item__btn_on")) {
@@ -16,6 +34,7 @@ const Purposes: React.FC = () => {
 
     return (
             <section className={"purposes"}>
+                <ScrollTriggerAnimation visibleSetting={{opacity: 1, secondParam: 'x', paramNumber: 0}} hiddenSetting={{opacity: 1, secondParam: 'x', paramNumber: -100}}>
                 <div className={"title-container"}>
                     {width > 1023 ? (<h2 className="title-container__title"><span
                         className={"title-container__span"}>Упростим</span> процесс
@@ -23,9 +42,11 @@ const Purposes: React.FC = () => {
                         растений и&nbsp;поможем Вам достичь <span className={"title-container__span"}>результатов</span>
                     </h2>) : (<h2 className="title-container__title">поможем достичь <span className={"title-container__span"}>результатов</span>
                     </h2>)}
-
+                    <ScrollTriggerAnimation visibleSetting={{opacity: 1, secondParam: 'x', paramNumber: 0}} hiddenSetting={{opacity: 1, secondParam: 'x', paramNumber: 150}}>
                     <Marker markerText={"Наши цели"}/>
+                    </ScrollTriggerAnimation>
                 </div>
+                </ScrollTriggerAnimation>
                 {width >= 1023 ? (
                     <div className="purposes__items">
                         <div className={"item"}>
@@ -81,7 +102,7 @@ const Purposes: React.FC = () => {
                 </div>
                 ) : (
                     <div className="purposes__items">
-                        <details className={"item"}>
+                        <motion.details className={"item"}>
                             <summary className={"item__title-container"} onClick={handleAccordionClick}>
                                 <div className={"item__number-container"}>
                                     <p className={"text_m item__number"}>01</p>
@@ -90,12 +111,12 @@ const Purposes: React.FC = () => {
                                 <div className={"link item__btn"}></div>
 
                             </summary>
-                            <p className={"text_s item__description"}>Мы&nbsp;постоянно исследуем и&nbsp;разрабатываем
+                            <motion.p variants={variants} transition={{duration: 0.5}} className={"text_s item__description"}>Мы&nbsp;постоянно исследуем и&nbsp;разрабатываем
                                 новые
                                 методы и&nbsp;технологии в&nbsp;гидропонике, чтобы предоставить нашим клиентам самые
                                 передовые
-                                и&nbsp;эффективные инструменты для выращивания растений.</p>
-                        </details>
+                                и&nbsp;эффективные инструменты для выращивания растений.</motion.p>
+                        </motion.details>
                         <details className={"item"}>
                             <summary className={"item__title-container"} onClick={handleAccordionClick}>
                                 <div className={"item__number-container"}>

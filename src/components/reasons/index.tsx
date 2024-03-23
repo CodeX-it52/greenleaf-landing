@@ -1,12 +1,14 @@
 import React from "react";
 import Marker from "@components/marker/marker.tsx";
 import {useResize} from "@hooks/useResize.tsx";
+import ScrollTriggerAnimation from "@components/scrollTriggerAnimation";
 
 const Reasons: React.FC = () => {
     const {width} = useResize();
 
     return (
         <section className={"reasons"}>
+            <ScrollTriggerAnimation visibleSetting={{opacity: 1, secondParam: 'x', paramNumber: 0}} hiddenSetting={{opacity: 1, secondParam: 'x', paramNumber: -100}}>
             <div className={"title-container"}>
                 {width > 1023 ? (<h2 className="title-container__title">
                     <span className={"title-container__span"}>GreenLeaf</span>&nbsp;&mdash; ваш надежный <br/> партнер в&nbsp;достижении успеха</h2>
@@ -15,8 +17,11 @@ const Reasons: React.FC = () => {
                         <span className={"title-container__span"}>GreenLeaf</span>&nbsp;&mdash; ваш
                         надежный партнер</h2>
                 )}
+                <ScrollTriggerAnimation visibleSetting={{opacity: 1, secondParam: 'x', paramNumber: 0}} hiddenSetting={{opacity: 1, secondParam: 'x', paramNumber: 150}}>
                 <Marker markerText={"почему мы"}/>
+                </ScrollTriggerAnimation>
             </div>
+            </ScrollTriggerAnimation>
             {width > 576 ? (
                 <ul className={"reasons__container"}>
                     <li className={"reason"}>

@@ -16,7 +16,6 @@ import TenthPage from "@images/10_page.png"
 
 const cards_gh = [
     <>
-        <div className={"card__marker"}><Marker markerText={"о приложении"}/></div>
         <div className={"card__container"}>
             <div className={"card__description-container"}>
                 <h2 className="title-container__title title-container__title_m">
@@ -27,7 +26,6 @@ const cards_gh = [
         </div>
     </>,
     <>
-        <div className={"card__marker"}><Marker markerText={"о приложении"}/></div>
         <div className={"card__container"}>
             <div className={"card__description-container"}>
                 <h2 className="title-container__title title-container__title_m">
@@ -38,7 +36,6 @@ const cards_gh = [
         </div>
     </>,
     <>
-        <div className={"card__marker"}><Marker markerText={"о приложении"}/></div>
         <div className={"card__container"}>
             <div className={"card__description-container"}>
                 <h2 className="title-container__title title-container__title_m">
@@ -49,7 +46,6 @@ const cards_gh = [
         </div>
     </>,
     <>
-        <div className={"card__marker"}><Marker markerText={"о приложении"}/></div>
         <div className={"card__container"}>
             <div className={"card__description-container"}>
                 <h2 className="title-container__title title-container__title_m">
@@ -60,7 +56,6 @@ const cards_gh = [
         </div>
     </>,
     <>
-        <div className={"card__marker"}><Marker markerText={"о приложении"}/></div>
         <div className={"card__container"}>
             <div className={"card__description-container"}>
                 <h2 className="title-container__title title-container__title_m">
@@ -71,7 +66,6 @@ const cards_gh = [
         </div>
     </>,
     <>
-        <div className={"card__marker"}><Marker markerText={"о приложении"}/></div>
         <div className={"card__container"}>
             <div className={"card__description-container"}>
                 <h2 className="title-container__title title-container__title_m">
@@ -82,7 +76,6 @@ const cards_gh = [
         </div>
     </>,
     <>
-        <div className={"card__marker"}><Marker markerText={"о приложении"}/></div>
         <div className={"card__container"}>
             <div className={"card__description-container"}>
                 <h2 className="title-container__title title-container__title_m">
@@ -93,7 +86,6 @@ const cards_gh = [
         </div>
     </>,
     <>
-        <div className={"card__marker"}><Marker markerText={"о приложении"}/></div>
         <div className={"card__container"}>
             <div className={"card__description-container"}>
                 <h2 className="title-container__title title-container__title_m">
@@ -111,7 +103,6 @@ const cards_gh = [
         </div>
     </>,
     <>
-        <div className={"card__marker"}><Marker markerText={"о приложении"}/></div>
         <div className={"card__container"}>
             <div className={"card__description-container"}>
                 <h2 className="title-container__title title-container__title_m">
@@ -121,7 +112,6 @@ const cards_gh = [
             <img className={"card__img"} src={NinthPage} alt={"Демонстрация интерфейса приложения"}/>
         </div>
     </>, <>
-        <div className={"card__marker"}><Marker markerText={"о приложении"}/></div>
         <div className={"card__container"}>
             <div className={"card__description-container"}>
                 <h2 className="title-container__title title-container__title_m">

@@ -7,6 +7,7 @@ import Reasons from "@components/reasons";
 import Functions from "@components/functions";
 import Carousel from "@components/carousel";
 import ContactForm from "@components/contact-form/index.tsx"
+import Marker from "@components/marker/marker.tsx";
 
 
 const Home: React.FC = () => {
@@ -19,9 +20,13 @@ const {width} = useResize();
             <Reasons/>
             <Functions />
             <section className={"carousel"}>
-                {width <= 576 && (
+                {width <= 576 ? (
                     <h2 className="title-container__title">
                         <span className={"title-container__span"}>О приложении</span></h2>
+                ) : (
+                    <div className={"card__marker"}>
+                        <Marker markerText={"о приложении"}/>
+                    </div>
                 )}
                 <Carousel/>
             </section>

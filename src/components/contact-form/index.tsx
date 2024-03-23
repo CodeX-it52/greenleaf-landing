@@ -4,6 +4,7 @@ import {useFormWithValidation} from "@hooks/useFormWithValidation.jsx";
 import {useResize} from "@hooks/useResize.tsx";
 import {Link} from "react-router-dom";
 import {api} from "@utils/Api.tsx";
+import ScrollTriggerAnimation from "@components/scrollTriggerAnimation";
 
 
 const ContactForm: React.FC = () => {
@@ -43,6 +44,7 @@ const ContactForm: React.FC = () => {
     }, [resetForm])
 
     return (
+        <ScrollTriggerAnimation visibleSetting={{opacity: 1, secondParam: 'y', paramNumber: 0}} hiddenSetting={{opacity: 0, secondParam: 'y', paramNumber: 100}}>
         <section className={"contact-form"} id={"contacts"}>
         <div className={"contact-form__title-container"}>
             <div className={"reason__marker reason__marker_contact"}></div>
@@ -95,6 +97,7 @@ const ContactForm: React.FC = () => {
                 </div>
             </form>
         </section>
+        </ScrollTriggerAnimation>
     )
 }
 

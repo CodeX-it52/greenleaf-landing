@@ -2,15 +2,20 @@ import React from "react";
 import Marker from "@components/marker/marker.tsx";
 import Team from "@images/team.svg";
 import {useResize} from "@hooks/useResize.tsx";
+import ScrollTriggerAnimation from "@components/scrollTriggerAnimation";
 
 const AboutTeam: React.FC = () => {
     const {width} = useResize();
     return (
         <section className={"team"} id={"about"}>
+            <ScrollTriggerAnimation visibleSetting={{opacity: 1, secondParam: 'x', paramNumber: 0}} hiddenSetting={{opacity: 1, secondParam: 'x', paramNumber: -100}}>
             <div className={"title-container"}>
                 <h2 className="title-container__title">Мы&nbsp;делаем <span className={"title-container__span"}>GreenLeaf</span><br/>возможным</h2>
+                <ScrollTriggerAnimation visibleSetting={{opacity: 1, secondParam: 'x', paramNumber: 0}} hiddenSetting={{opacity: 1, secondParam: 'x', paramNumber: 150}}>
                 <Marker markerText={"команда"}/>
+                </ScrollTriggerAnimation>
             </div>
+            </ScrollTriggerAnimation>
             <div className={"team__container"}>
                 <div className={"team__description"}>
                     {width > 576 && (

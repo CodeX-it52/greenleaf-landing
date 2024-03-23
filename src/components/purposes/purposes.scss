@@ -63,6 +63,10 @@
     justify-content: space-between;
     width: 100%;
   }
+
+  @media screen and (max-width: 576px) {
+    cursor: pointer;
+  }
 }
 
 .item__number-container {
