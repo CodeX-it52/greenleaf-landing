@@ -1,16 +1,39 @@
 import React from "react";
-import Marker from "@components/marker/marker.tsx";
+import {lazy} from "react";
+import {motion} from "framer-motion";
+import ScrollTriggerAnimation from "@components/scrollTriggerAnimation";
+
+const Marker = lazy(() => import("@components/marker/marker.tsx"))
 
 const Functions: React.FC = () => {
     return (
-        <section className={"functions"} id={"project"}>
+        <section
+            className={"functions"}
+            id={"project"}
+            >
+            <ScrollTriggerAnimation visibleSetting={{opacity: 1, secondParam: 'x', paramNumber: 0}}
+                                    hiddenSetting={{opacity: 1, secondParam: 'x', paramNumber: -100}}>
             <div className={"title-container"}>
                 <h2 className="title-container__title">
                     самый широкий спектр <span className={"title-container__span"}>функций</span></h2>
+                <ScrollTriggerAnimation visibleSetting={{opacity: 1, secondParam: 'x', paramNumber: 0}}
+                                        hiddenSetting={{opacity: 1, secondParam: 'x', paramNumber: 150}}>
                 <Marker markerText={"наш продукт"}/>
+                </ScrollTriggerAnimation>
             </div>
+            </ScrollTriggerAnimation>
             <p className={"text_m functions__subtitle"}>Наше приложение предлагает широкий спектр функций, позволяющих эффективно контролировать и&nbsp;оптимизировать условия выращивания растений. Оно обеспечивает мониторинг и&nbsp;управление основными параметрами, а&nbsp;также предлагает возможность автоматического управления системой.</p>
-            <div className={"functions__container"}>
+            <motion.div
+                className={"functions__container"}
+                initial={"hidden"}
+                viewport={{once: true}}
+                transition={{duration: 1}}
+                whileInView={"visible"}
+                variants={{
+                    visible: {opacity: 1, y: 0},
+                    hidden: {opacity: 0, y: 100}
+                }}
+            >
                 <div className={"function function_benefit"}>
                     <div className={"function__marker"}></div>
                     <p className={"text_m function__title"}>Какую пользу приносит ПО</p>
@@ -82,7 +105,7 @@ const Functions: React.FC = () => {
                         сокращая время на&nbsp;подготовку новых сотрудников.</p>
 
                 </div>
-            </div>
+            </motion.div>
         </section>
     )
 }

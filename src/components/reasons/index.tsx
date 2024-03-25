@@ -1,7 +1,32 @@
 import React from "react";
-import Marker from "@components/marker/marker.tsx";
+import {lazy} from "react";
+import {motion, AnimatePresence} from "framer-motion";
+
+const Marker = lazy(() => import("@components/marker/marker.tsx"))
 import {useResize} from "@hooks/useResize.tsx";
 import ScrollTriggerAnimation from "@components/scrollTriggerAnimation";
+
+interface Reason {
+    title: string;
+    description: string;
+}
+
+type ReasonsType = Reason[];
+
+const reasonsInfo: ReasonsType = [
+    {
+        title: "Технологичность",
+        description: "Мы предлагаем надежные и инновационные решения для управления теплицами, которые помогут вам достичь высоких результатов в выращивании растений в гидропонных системах.",
+    },
+    {
+        title: "Эффективность",
+        description: "Мы предлагаем широкий спектр функций, позволяющих контролировать и оптимизировать условия выращивания растений в гидропонных системах. Наша система обеспечивает непрерывный контроль и регулировку, что позволяет создавать оптимальные условия для роста и развития растений.",
+    },
+    {
+        title: "Перспективность",
+        description: "Мы верим в потенциал гидропоники как передового метода выращивания растений. Наша цель помочь вам достичь лучших результатов в выращивании растений в гидропонных теплицах.",
+    },
+]
 
 const Reasons: React.FC = () => {
     const {width} = useResize();
@@ -11,10 +36,10 @@ const Reasons: React.FC = () => {
             <ScrollTriggerAnimation visibleSetting={{opacity: 1, secondParam: 'x', paramNumber: 0}} hiddenSetting={{opacity: 1, secondParam: 'x', paramNumber: -100}}>
             <div className={"title-container"}>
                 {width > 1023 ? (<h2 className="title-container__title">
-                    <span className={"title-container__span"}>GreenLeaf</span>&nbsp;&mdash; ваш надежный <br/> партнер в&nbsp;достижении успеха</h2>
+                    <span className={"title-container__span"}>GreenLeaf</span>  ваш надежный <br/> партнер в достижении успеха</h2>
                 ) : (
                     <h2 className="title-container__title">
-                        <span className={"title-container__span"}>GreenLeaf</span>&nbsp;&mdash; ваш
+                        <span className={"title-container__span"}>GreenLeaf</span>  ваш
                         надежный партнер</h2>
                 )}
                 <ScrollTriggerAnimation visibleSetting={{opacity: 1, secondParam: 'x', paramNumber: 0}} hiddenSetting={{opacity: 1, secondParam: 'x', paramNumber: 150}}>
@@ -23,73 +48,52 @@ const Reasons: React.FC = () => {
             </div>
             </ScrollTriggerAnimation>
             {width > 576 ? (
-                <ul className={"reasons__container"}>
-                    <li className={"reason"}>
-                        <div className={"reason__title-container"}>
-                            <div className={"reason__marker"}></div>
-                            <p className={"text_m reason__title"}>Технологичность</p>
-                        </div>
-                        <p className={"text_s reason__description"}>Мы&nbsp;предлагаем надежные и&nbsp;инновационные решения
-                            для управления теплицами, которые помогут вам достичь высоких результатов в&nbsp;выращивании
-                            растений в&nbsp;гидропонных системах.</p>
-                    </li>
-                    <li className={"reason"}>
-                        <div className={"reason__title-container"}>
-                            <div className={"reason__marker"}></div>
-                            <p className={"text_m reason__title"}>Эффективность</p>
-                        </div>
-                        <p className={"text_s reason__description"}>Мы&nbsp;предлагаем широкий спектр функций, позволяющих контролировать и&nbsp;оптимизировать условия выращивания растений в&nbsp;гидропонных системах. Наша система обеспечивает непрерывный контроль и&nbsp;регулировку, что позволяет создавать оптимальные условия для роста и&nbsp;развития растений.</p>
-                    </li>
-                    <li className={"reason"}>
-                        <div className={"reason__title-container"}>
-                            <div className={"reason__marker"}></div>
-                            <p className={"text_m reason__title"}>Перспективность</p>
-                        </div>
-                        <p className={"text_s reason__description"}>Мы&nbsp;верим в&nbsp;потенциал гидропоники как передового метода выращивания растений. Наша цель&nbsp;&mdash; помочь вам достичь лучших результатов в&nbsp;выращивании растений в&nbsp;гидропонных теплицах.</p>
-                    </li>
-                </ul>
+                <motion.ul className={"reasons__container"}>
+                    {reasonsInfo.map((item, index) => (
+                        <motion.li
+                            key={index}
+                            className={"reason"}
+                            initial={"hidden"}
+                            viewport={{once: true}}
+                            transition={{duration: 1.2}}
+                            whileInView={"visible"}
+                            variants={{
+                                visible: {opacity: 1, y: 0},
+                                hidden: {opacity: 0, y: 100}
+                            }}>
+                            <div className={"reason__title-container"}>
+                                <div className={"reason__marker"}></div>
+                                <p className={"text_m reason__title"}>{item.title}</p>
+                            </div>
+                            <p className={"text_s reason__description"}>{item.description}</p>
+                        </motion.li>
+                    ))}
+                </motion.ul>
             ) : (
-                <ul className={"reasons__container"}>
-                    <li className={"reason"}>
-                        <div className={"reason__title-container"}>
-                            <div className={"reason__marker"}></div>
-                            <div className={"reason__title-container reason__title-container_m"}>
-                                <p className={"text_m reason__title"}>Технологичность</p>
-                                <p className={"text_s reason__description"}>Мы&nbsp;предлагаем надежные
-                                    и&nbsp;инновационные
-                                    решения
-                                    для управления теплицами, которые помогут вам достичь высоких результатов
-                                    в&nbsp;выращивании
-                                    растений в&nbsp;гидропонных системах.</p>
+                <motion.ul className={"reasons__container"}>
+                    {reasonsInfo.map((item, index) => (
+                        <motion.li
+                            key={index}
+                            className={"reason"}
+                            initial={"hidden"}
+                            viewport={{once: true}}
+                            transition={{duration: 1.2}}
+                            whileInView={"visible"}
+                            variants={{
+                                visible: {opacity: 1, y: 0},
+                                hidden: {opacity: 0, y: 100}
+                            }}>
+                            <div className={"reason__title-container"}>
+                                <div className={"reason__marker"}></div>
+                                <div className={"reason__title-container reason__title-container_m"}>
+                                    <p className={"text_m reason__title"}>{item.title}</p>
+                                    <p className={"text_s reason__description"}>{item.description}</p>
+                                </div>
                             </div>
-                        </div>
-
-                    </li>
-                    <li className={"reason"}>
-                        <div className={"reason__title-container"}>
-                            <div className={"reason__marker"}></div>
-                            <div className={"reason__title-container reason__title-container_m"}>
-                                <p className={"text_m reason__title"}>Эффективность</p>
-                                <p className={"text_s reason__description"}>Мы&nbsp;предлагаем широкий спектр функций,
-                                    позволяющих контролировать и&nbsp;оптимизировать условия выращивания растений
-                                    в&nbsp;гидропонных системах. Наша система обеспечивает непрерывный контроль
-                                    и&nbsp;регулировку, что позволяет создавать оптимальные условия для роста и&nbsp;развития растений.</p>
-                            </div>
-                        </div>
-                    </li>
-                    <li className={"reason"}>
-                        <div className={"reason__title-container"}>
-                            <div className={"reason__marker"}></div>
-                            <div className={"reason__title-container reason__title-container_m"}>
-                                <p className={"text_m reason__title"}>Перспективность</p>
-                                <p className={"text_s reason__description"}>
-                                    Мы&nbsp;верим в&nbsp;потенциал гидропоники как передового метода выращивания растений. Наша цель&nbsp;&mdash; помочь вам достичь лучших результатов в&nbsp;выращивании растений в&nbsp;гидропонных теплицах.</p>
-                            </div>
-                        </div>
-                    </li>
-                </ul>
+                        </motion.li>
+                    ))}
+                </motion.ul>
             )}
-
         </section>
     )
 }

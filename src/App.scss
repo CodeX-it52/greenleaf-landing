@@ -1,5 +1,9 @@
 @use "@scss/variables" as *;
 
+html {
+  scroll-behavior: smooth;
+}
+
 .body {
   font-family: $helvetica-font;
   line-height: 1.5;

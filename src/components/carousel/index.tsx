@@ -1,6 +1,5 @@
-import React from "react";
+import React, {lazy} from "react";
 import {motion, AnimatePresence} from "framer-motion";
-import Marker from "@components/marker/marker.tsx"
 import {useResize} from "@hooks/useResize.tsx";
 import FirstPage from "@images/1_page.png";
 import SecondPage from "@images/2_page.png"
@@ -12,84 +11,162 @@ import SeventhPage from "@images/7_page.png"
 import EighthPage from "@images/8_page.png"
 import NinthPage from "@images/9_page.png"
 import TenthPage from "@images/10_page.png"
+const ScrollTriggerAnimation = lazy(() => import("@components/scrollTriggerAnimation"));
 
 
 const cards_gh = [
     <>
         <div className={"card__container"}>
             <div className={"card__description-container"}>
+                <ScrollTriggerAnimation visibleSetting={{opacity: 1, secondParam: 'x', paramNumber: 0}}
+                                    hiddenSetting={{opacity: 1, secondParam: 'x', paramNumber: -100}}>
                 <h2 className="title-container__title title-container__title_m">
                     <span className={"title-container__span"}>минималистичный</span> дизайн приложения</h2>
+                </ScrollTriggerAnimation>
                     <p className={"text_m card__description"}>Понятный и&nbsp;лаконичный интерфейс без большого количества деталей и&nbsp;лишних кнопок. Малое количество основных экранов делает навигацию в&nbsp;приложении по-настоящему простой.</p>
             </div>
-            <img className={"card__img"} src={FirstPage} alt={"Демонстрация интерфейса приложения"}/>
+            <motion.img className={"card__img"} src={FirstPage} alt={"Демонстрация интерфейса приложения"} initial={"hidden"}
+                        viewport={{once: true}}
+                        transition={{duration: 0.5}}
+                        whileInView={"visible"}
+                        variants={{
+                            visible: {opacity: 1, y: 0},
+                            hidden: {opacity: 0, y: 20}
+                        }}/>
         </div>
     </>,
     <>
         <div className={"card__container"}>
             <div className={"card__description-container"}>
+                <ScrollTriggerAnimation visibleSetting={{opacity: 1, secondParam: 'x', paramNumber: 0}}
+                                    hiddenSetting={{opacity: 1, secondParam: 'x', paramNumber: -100}}>
                 <h2 className="title-container__title title-container__title_m">
                     <span className={"title-container__span"}>напомним</span> о&nbsp;созревании растений</h2>
+                </ScrollTriggerAnimation>
                 <p className={"text_m card__description"}>Календарь позволяет отслеживать созревания растений, добавлять различные напоминания об&nbsp;особенностях ухода за&nbsp;растениями, а&nbsp;также создавать новые посадки.</p>
             </div>
-            <img className={"card__img"} src={SecondPage} alt={"Демонстрация интерфейса приложения"}/>
+            <motion.img className={"card__img"} src={SecondPage} alt={"Демонстрация интерфейса приложения"} initial={"hidden"}
+                        viewport={{once: true}}
+                        transition={{duration: 0.5}}
+                        whileInView={"visible"}
+                        variants={{
+                            visible: {opacity: 1, y: 0},
+                            hidden: {opacity: 0, y: 20}
+                        }}/>
         </div>
     </>,
     <>
         <div className={"card__container"}>
             <div className={"card__description-container"}>
+                <ScrollTriggerAnimation visibleSetting={{opacity: 1, secondParam: 'x', paramNumber: 0}}
+                                    hiddenSetting={{opacity: 1, secondParam: 'x', paramNumber: -100}}>
                 <h2 className="title-container__title title-container__title_m">
                     <span className={"title-container__span"}>Привязка контроллера</span> в&nbsp;два клика</h2>
+                </ScrollTriggerAnimation>
                 <p className={"text_m card__description"}>Каждый контроллер имеет свой уникальный QR-код, контроллер привязывается к&nbsp;приложению посредством считывания QR-кода с&nbsp;помощью камеры телефона.</p>
             </div>
-            <img className={"card__img"} src={ThirdPage} alt={"Демонстрация интерфейса приложения"}/>
+            <motion.img className={"card__img"} src={ThirdPage} alt={"Демонстрация интерфейса приложения"} initial={"hidden"}
+                        viewport={{once: true}}
+                        transition={{duration: 0.5}}
+                        whileInView={"visible"}
+                        variants={{
+                            visible: {opacity: 1, y: 0},
+                            hidden: {opacity: 0, y: 20}
+                        }}/>
         </div>
     </>,
     <>
         <div className={"card__container"}>
             <div className={"card__description-container"}>
+                <ScrollTriggerAnimation visibleSetting={{opacity: 1, secondParam: 'x', paramNumber: 0}}
+                                    hiddenSetting={{opacity: 1, secondParam: 'x', paramNumber: -100}}>
                 <h2 className="title-container__title title-container__title_m">
                     <span className={"title-container__span"}>Повторяйте посадку</span> с&nbsp;прошлыми значениями</h2>
+                </ScrollTriggerAnimation>
                 <p className={"text_m card__description"}>Создайте шаблон при выставлении значений. В&nbsp;следующий раз шаблон поможет выставить значения сохраненные с&nbsp;прошлого раза. Это сократит время при формировании повторных посадок.</p>
             </div>
-            <img className={"card__img"} src={FourthPage} alt={"Демонстрация интерфейса приложения"}/>
+            <motion.img
+                className={"card__img"}
+                src={FourthPage}
+                alt={"Демонстрация интерфейса приложения"}
+                initial={"hidden"}
+                viewport={{once: true}}
+                transition={{duration: 0.5}}
+                whileInView={"visible"}
+                variants={{
+                    visible: {opacity: 1, y: 0},
+                    hidden: {opacity: 0, y: 20}
+                }}/>
         </div>
     </>,
     <>
         <div className={"card__container"}>
             <div className={"card__description-container"}>
+                <ScrollTriggerAnimation visibleSetting={{opacity: 1, secondParam: 'x', paramNumber: 0}}
+                                    hiddenSetting={{opacity: 1, secondParam: 'x', paramNumber: -100}}>
                 <h2 className="title-container__title title-container__title_m">
                     <span className={"title-container__span"}>Создайте условия</span> для роста растений</h2>
+                </ScrollTriggerAnimation>
                 <p className={"text_m card__description"}>Пользователь создает посадку и&nbsp;задает значения датчиков. Заданные значения будут поддерживаться в&nbsp;теплице. По&nbsp;данным значениям можно создать шаблон и&nbsp;использовать его при создании других посадок.</p>
             </div>
-            <img className={"card__img"} src={FifthPage} alt={"Демонстрация интерфейса приложения"}/>
+            <motion.img className={"card__img"} src={FifthPage} alt={"Демонстрация интерфейса приложения"} initial={"hidden"}
+                        viewport={{once: true}}
+                        transition={{duration: 0.5}}
+                        whileInView={"visible"}
+                        variants={{
+                            visible: {opacity: 1, y: 0},
+                            hidden: {opacity: 0, y: 20}
+                        }}/>
         </div>
     </>,
     <>
         <div className={"card__container"}>
             <div className={"card__description-container"}>
+                <ScrollTriggerAnimation visibleSetting={{opacity: 1, secondParam: 'x', paramNumber: 0}}
+                                    hiddenSetting={{opacity: 1, secondParam: 'x', paramNumber: -100}}>
                 <h2 className="title-container__title title-container__title_m">
                     <span className={"title-container__span"}>Отслеживайте</span> статус теплиц</h2>
+                </ScrollTriggerAnimation>
                 <p className={"text_m card__description"}>На&nbsp;экране отображаются адреса теплиц и&nbsp;их&nbsp;статусы посадок, также можно узнать историю посадок в&nbsp;определенной теплице.</p>
             </div>
-            <img className={"card__img"} src={SixthPage} alt={"Демонстрация интерфейса приложения"}/>
+            <motion.img className={"card__img"} src={SixthPage} alt={"Демонстрация интерфейса приложения"} initial={"hidden"}
+                        viewport={{once: true}}
+                        transition={{duration: 0.5}}
+                        whileInView={"visible"}
+                        variants={{
+                            visible: {opacity: 1, y: 0},
+                            hidden: {opacity: 0, y: 20}
+                        }}/>
         </div>
     </>,
     <>
         <div className={"card__container"}>
             <div className={"card__description-container"}>
+                <ScrollTriggerAnimation visibleSetting={{opacity: 1, secondParam: 'x', paramNumber: 0}}
+                                    hiddenSetting={{opacity: 1, secondParam: 'x', paramNumber: -100}}>
                 <h2 className="title-container__title title-container__title_m">
                     <span className={"title-container__span"}>Следите за&nbsp;показателями</span> и&nbsp;собирайте статистику</h2>
+                </ScrollTriggerAnimation>
                 <p className={"text_m card__description"}>График отображает показатели с&nbsp;датчиков за&nbsp;указанный пользователем промежуток времени. Ниже отображаются показатели в&nbsp;реальном времени.</p>
             </div>
-            <img className={"card__img"} src={SeventhPage} alt={"Демонстрация интерфейса приложения"}/>
+            <motion.img className={"card__img"} src={SeventhPage} alt={"Демонстрация интерфейса приложения"} initial={"hidden"}
+                        viewport={{once: true}}
+                        transition={{duration: 0.5}}
+                        whileInView={"visible"}
+                        variants={{
+                            visible: {opacity: 1, y: 0},
+                            hidden: {opacity: 0, y: 20}
+                        }}/>
         </div>
     </>,
     <>
         <div className={"card__container"}>
             <div className={"card__description-container"}>
+                <ScrollTriggerAnimation visibleSetting={{opacity: 1, secondParam: 'x', paramNumber: 0}}
+                                    hiddenSetting={{opacity: 1, secondParam: 'x', paramNumber: -100}}>
                 <h2 className="title-container__title title-container__title_m">
                     <span className={"title-container__span"}>Будьте в курсе</span> событий</h2>
+                </ScrollTriggerAnimation>
                 <div className={"card__list"}>
                     <p className={"text_m card__description"}>В&nbsp;приложение предусмотрено два типа оповещений: </p>
                     <ul className={"card__items"}>
@@ -99,26 +176,46 @@ const cards_gh = [
                     <p className={"text_m card__description"}>Возможна настройка уведомлений, их&nbsp;частоту, а&nbsp;также полное или частичное их&nbsp;отключение</p>
                 </div>
             </div>
-            <img className={"card__img"} src={EighthPage} alt={"Демонстрация интерфейса приложения"}/>
+            <motion.img className={"card__img"} src={EighthPage} alt={"Демонстрация интерфейса приложения"} initial={"hidden"}
+                        viewport={{once: true}}
+                        transition={{duration: 0.5}}
+                        whileInView={"visible"}
+                        variants={{
+                            visible: {opacity: 1, y: 0},
+                            hidden: {opacity: 0, y: 20}
+                        }}/>
         </div>
     </>,
     <>
         <div className={"card__container"}>
             <div className={"card__description-container"}>
+                <ScrollTriggerAnimation visibleSetting={{opacity: 1, secondParam: 'x', paramNumber: 0}}
+                                    hiddenSetting={{opacity: 1, secondParam: 'x', paramNumber: -100}}>
                 <h2 className="title-container__title title-container__title_m">
                     <span className={"title-container__span"}>Всегда найдется</span> решение</h2>
+                </ScrollTriggerAnimation>
                 <p className={"text_m card__description"}>В&nbsp;приложении интегрировано подробное руководство пользователя, а&nbsp;также существует техническая поддержка.</p>
             </div>
-            <img className={"card__img"} src={NinthPage} alt={"Демонстрация интерфейса приложения"}/>
+            <motion.img className={"card__img"} src={NinthPage} alt={"Демонстрация интерфейса приложения"}/>
         </div>
     </>, <>
         <div className={"card__container"}>
             <div className={"card__description-container"}>
+                <ScrollTriggerAnimation visibleSetting={{opacity: 1, secondParam: 'x', paramNumber: 0}}
+                                    hiddenSetting={{opacity: 1, secondParam: 'x', paramNumber: -100}}>
                 <h2 className="title-container__title title-container__title_m">
                     <span className={"title-container__span"}>Решим ваш вопрос</span></h2>
+                </ScrollTriggerAnimation>
                 <p className={"text_m card__description"}>В&nbsp;случае ошибки или иной неполадки сообщите о&nbsp;ней внутри приложении. Наша команда безотлагательно обработает ваш запрос и&nbsp;решит его в&nbsp;первостепенном порядке.</p>
             </div>
-            <img className={"card__img"} src={TenthPage} alt={"Демонстрация интерфейса приложения"}/>
+            <motion.img className={"card__img"} src={TenthPage} alt={"Демонстрация интерфейса приложения"} initial={"hidden"}
+                        viewport={{once: true}}
+                        transition={{duration: 0.5}}
+                        whileInView={"visible"}
+                        variants={{
+                            visible: {opacity: 1, y: 0},
+                            hidden: {opacity: 0, y: 20}
+                        }}/>
         </div>
     </>
 
@@ -205,7 +302,7 @@ const Carousel: React.FC = ({type}) => {
                     exit="exit"
                     custom={direction}
                     transition={{
-                        duration: 0.2,
+                        duration: 0.5,
                     }}
                 >
                     {cards[page]?.props?.children}

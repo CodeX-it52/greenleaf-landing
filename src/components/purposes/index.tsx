@@ -1,184 +1,163 @@
-import React from "react";
-import Marker from "@components/marker/marker.tsx";
+import React, {memo, useCallback} from "react";
+import {lazy} from "react";
+const Marker = lazy(() => import("@components/marker/marker.tsx"));
 import {useResize} from "@hooks/useResize";
 import ScrollTriggerAnimation from "@components/scrollTriggerAnimation";
 import {motion, AnimatePresence} from "framer-motion";
 
-type variantsProps = {
-    open: {
-        opacity: number,
-            x: number
-    },
-    closed: {
-        opacity: number,
-            x: number,
-    }
+interface Purpose {
+    title: string;
+    description: string;
+    number: string;
 }
 
-const variants: variantsProps = {
-    open: {opacity: 1, x: 0},
-    closed: {opacity: 0, x: -100},
-}
+type PurposesType = Purpose[];
+
+const purposesInfo: PurposesType = [
+    {
+        title: "Инновации в гидропонике",
+        number: "01",
+        description: "Мы постоянно исследуем и разрабатываем новые методы и технологии в гидропонике, чтобы предоставить нашим клиентам самые передовые и эффективные инструменты для выращивания растений.",
+    },
+    {
+        title: "Устойчивое сельское хозяйство",
+        number: "02",
+        description: "Мы верим в потенциал гидропоники как устойчивого метода выращивания растений. Наша цель содействовать развитию устойчивого сельского хозяйства, где растения выращиваются без почвы, с минимальным использованием воды и питательных веществ, и снижением негативного воздействия на окружающую среду.",
+    },
+    {
+        title: "Повышение урожайности и эффективности",
+        number: "03",
+        description: "Мы стремимся помочь клиентам повысить урожайность и эффективность своих гидропонных систем. Наша цель оптимизировать условия выращивания, автоматизировать процессы и улучшить контроль над параметрами, такими как температура, влажность, освещение и питательные вещества.",
+    },
+    {
+        title: "Обеспечение доступности и простоты использования",
+        number: "04",
+        description: "Мы стремимся сделать гидропонику доступной для всех. Наша цель    предоставить интуитивно понятные и легко используемые инструменты управления гидропонными теплицами.",
+    },
+    {
+        title: "Поддержка и обучение",
+        number: "05",
+        description: "Мы ценим наших клиентов и стремимся предоставить им высокий уровень поддержки. Мы предлагаем обучающие материалы, руководства и персонализированную помощь, чтобы помочь нашим клиентам достичь желаемых результатов.",
+    },
+]
+
+const AccordionItem = memo(({item, index, openIndex, handleAccordionClick}) => {
+    return (
+        <div className={"item"}>
+            <motion.div className={"item__title-container"} layout onClick={() => {
+                handleAccordionClick(index)
+            }}>
+                <div className={"item__number-container"}>
+                    <p className={"text_m item__number"}>{item.number}</p>
+                    <p className={"text_m item__title"}>{item.title}</p>
+                </div>
+                <div className={`link item__btn ${openIndex === index && "item__btn_on"}`}></div>
+            </motion.div>
+            <AnimatePresence initial={false}>
+                {openIndex === index && (
+                    <motion.p
+                        transition={{duration: 0.4}}
+                        initial={{opacity: 0, height: 0}}
+                        animate={{opacity: 1, height: "auto"}}
+                        exit={{opacity: 0, height: 0}}
+                        className={"text_s item__description"}
+                    >
+                        {item.description}
+                    </motion.p>
+                )}
+            </AnimatePresence>
+        </div>
+    )
+})
 
 const Purposes: React.FC = () => {
     const {width} = useResize();
-
-
-    const handleAccordionClick: React.MouseEvent<HTMLDivElement> = (evt) => {
-        if (evt.currentTarget.querySelector(".item__btn").classList.contains("item__btn_on")) {
-            evt.currentTarget.querySelector(".item__btn").classList.remove("item__btn_on")
-        } else {
-            evt.currentTarget.querySelector(".item__btn").classList.add("item__btn_on")
-        }
-    }
+    const [openIndex, setOpenIndex] = React.useState(null);
+    const handleAccordionClick = useCallback((index) => {
+        setOpenIndex(index === openIndex ? null : index);
+    }, [openIndex])
 
     return (
-            <section className={"purposes"}>
-                <ScrollTriggerAnimation visibleSetting={{opacity: 1, secondParam: 'x', paramNumber: 0}} hiddenSetting={{opacity: 1, secondParam: 'x', paramNumber: -100}}>
+        <section className={"purposes"}>
+            <ScrollTriggerAnimation visibleSetting={{opacity: 1, secondParam: 'x', paramNumber: 0}}
+                                    hiddenSetting={{opacity: 1, secondParam: 'x', paramNumber: -100}}>
                 <div className={"title-container"}>
                     {width > 1023 ? (<h2 className="title-container__title"><span
                         className={"title-container__span"}>Упростим</span> процесс
                         выращивания
-                        растений и&nbsp;поможем Вам достичь <span className={"title-container__span"}>результатов</span>
-                    </h2>) : (<h2 className="title-container__title">поможем достичь <span className={"title-container__span"}>результатов</span>
+                        растений и поможем Вам достичь <span className={"title-container__span"}>результатов</span>
+                    </h2>) : (<h2 className="title-container__title">поможем достичь <span
+                        className={"title-container__span"}>результатов</span>
                     </h2>)}
-                    <ScrollTriggerAnimation visibleSetting={{opacity: 1, secondParam: 'x', paramNumber: 0}} hiddenSetting={{opacity: 1, secondParam: 'x', paramNumber: 150}}>
-                    <Marker markerText={"Наши цели"}/>
+                    <ScrollTriggerAnimation visibleSetting={{opacity: 1, secondParam: 'x', paramNumber: 0}}
+                                            hiddenSetting={{opacity: 1, secondParam: 'x', paramNumber: 150}}>
+                        <Marker markerText={"Наши цели"}/>
                     </ScrollTriggerAnimation>
                 </div>
-                </ScrollTriggerAnimation>
-                {width >= 1023 ? (
-                    <div className="purposes__items">
-                        <div className={"item"}>
-                            <div className={"item__title-container"}>
-                            <p className={"text_m item__number"}>01</p>
-                            <p className={"text_m item__title"}>Инновации в гидропонике</p>
-                        </div>
-                        <p className={"text_s item__description"}>Мы&nbsp;постоянно исследуем и&nbsp;разрабатываем новые
-                            методы и&nbsp;технологии в&nbsp;гидропонике, чтобы предоставить нашим клиентам самые
-                            передовые
-                            и&nbsp;эффективные инструменты для выращивания растений.</p>
-                    </div>
-                    <div className={"item"}>
-                        <div className={"item__title-container"}>
-                            <p className={"text_m item__number"}>02</p>
-                            <p className={"text_m item__title"}>Устойчивое сельское хозяйство</p>
-                        </div>
-                        <p className={"text_s item__description"}>Мы&nbsp;верим в&nbsp;потенциал гидропоники как
-                            устойчивого метода выращивания растений. Наша цель&nbsp;&mdash; содействовать развитию
-                            устойчивого сельского хозяйства, где растения выращиваются без почвы, с&nbsp;минимальным
-                            использованием воды и&nbsp;питательных веществ, и&nbsp;снижением негативного воздействия
-                            на&nbsp;окружающую среду.</p>
-                    </div>
-                    <div className={"item"}>
-                        <div className={"item__title-container"}>
-                            <p className={"text_m item__number"}>03</p>
-                            <p className={"text_m item__title"}>Повышение урожайности и эффективности</p>
-                        </div>
-                        <p className={"text_s item__description"}>Мы&nbsp;стремимся помочь клиентам повысить урожайность
-                            и&nbsp;эффективность своих гидропонных систем. Наша цель оптимизировать условия выращивания,
-                            автоматизировать процессы и&nbsp;улучшить контроль над параметрами, такими как температура,
-                            влажность, освещение и&nbsp;питательные вещества.</p>
-                    </div>
-                    <div className={"item"}>
-                        <div className={"item__title-container"}>
-                            <p className={"text_m item__number"}>04</p>
-                            <p className={"text_m item__title"}>Обеспечение доступности и простоты использования</p>
-                        </div>
-                        <p className={"text_s item__description"}>Мы&nbsp;стремимся сделать гидропонику доступной для
-                            всех. Наша цель&nbsp;&mdash; предоставить интуитивно понятные и&nbsp;легко используемые
-                            инструменты управления гидропонными теплицами.</p>
-                    </div>
-                    <div className={"item"}>
-                        <div className={"item__title-container"}>
-                            <p className={"text_m item__number"}>05</p>
-                            <p className={"text_m item__title"}>Поддержка и обучение</p>
-                        </div>
-                        <p className={"text_s item__description"}>Мы&nbsp;ценим наших клиентов и&nbsp;стремимся
-                            предоставить им&nbsp;высокий уровень поддержки. Мы&nbsp;предлагаем обучающие материалы,
-                            руководства и&nbsp;персонализированную помощь, чтобы помочь нашим клиентам достичь желаемых
-                            результатов.</p>
-                    </div>
-                </div>
-                ) : (
-                    <div className="purposes__items">
-                        <motion.details className={"item"}>
-                            <summary className={"item__title-container"} onClick={handleAccordionClick}>
-                                <div className={"item__number-container"}>
-                                    <p className={"text_m item__number"}>01</p>
-                                <p className={"text_m item__title"}>Инновации в гидропонике</p>
+            </ScrollTriggerAnimation>
+            {width >= 1023 ? (
+                <motion.div
+                    className="purposes__items">
+                    <hr className={"item_border"}/>
+                    {purposesInfo.map((item, index) => (
+                        <React.Fragment key={index}>
+                            <motion.div
+                                className={"item"}
+                                initial={"hidden"}
+                                viewport={{once: true}}
+                                transition={{duration: 1}}
+                                whileInView={"visible"}
+                                variants={{
+                                    visible: {opacity: 1, y: 0},
+                                    hidden: {opacity: 0, y: 100}
+                                }}>
+                                <div className={"item__title-container"}>
+                                    <p className={"text_m item__number"}>{item.number}</p>
+                                    <p className={"text_m item__title"}>{item.title}</p>
                                 </div>
-                                <div className={"link item__btn"}></div>
+                                <p className={"text_s item__description"}>{item.description}</p>
+                            </motion.div>
+                            <motion.hr className={"item_border"}
+                            initial={"hidden"}
+                            whileInView={"visible"}
+                            transition={{duration: 1}}
+                            viewport={{once: true}}
+                            variants={{
+                                visible: {opacity: 1, y: 0},
+                                hidden: {opacity: 0, y: 100}
+                            }}
+                            />
+                        </React.Fragment>
+                    ))}
+                </motion.div>
+            ) : (
 
-                            </summary>
-                            <motion.p variants={variants} transition={{duration: 0.5}} className={"text_s item__description"}>Мы&nbsp;постоянно исследуем и&nbsp;разрабатываем
-                                новые
-                                методы и&nbsp;технологии в&nbsp;гидропонике, чтобы предоставить нашим клиентам самые
-                                передовые
-                                и&nbsp;эффективные инструменты для выращивания растений.</motion.p>
-                        </motion.details>
-                        <details className={"item"}>
-                            <summary className={"item__title-container"} onClick={handleAccordionClick}>
-                                <div className={"item__number-container"}>
-                                    <p className={"text_m item__number"}>02</p>
-                                    <p className={"text_m item__title"}>Устойчивое сельское хозяйство</p>
-                                </div>
-                                <div className={"link item__btn"}></div>
-                            </summary>
-                            <p className={"text_s item__description"}>Мы&nbsp;верим в&nbsp;потенциал гидропоники как
-                                устойчивого метода выращивания растений. Наша цель&nbsp;&mdash; содействовать развитию
-                                устойчивого сельского хозяйства, где растения выращиваются без почвы, с&nbsp;минимальным
-                                использованием воды и&nbsp;питательных веществ, и&nbsp;снижением негативного воздействия
-                                на&nbsp;окружающую среду.</p>
-                        </details>
-                        <details className={"item"}>
-                            <summary className={"item__title-container"} onClick={handleAccordionClick}>
-                                <div className={"item__number-container"}>
-                                <p className={"text_m item__number"}>03</p>
-                                <p className={"text_m item__title"}>Повышение урожайности и эффективности</p>
-                                 </div>
-                                <div className={"link item__btn"}></div>
-                            </summary>
-                            <p className={"text_s item__description"}>Мы&nbsp;стремимся помочь клиентам повысить
-                                урожайность
-                                и&nbsp;эффективность своих гидропонных систем. Наша цель оптимизировать условия
-                                выращивания,
-                                автоматизировать процессы и&nbsp;улучшить контроль над параметрами, такими как
-                                температура,
-                                влажность, освещение и&nbsp;питательные вещества.</p>
-                        </details>
-                        <details className={"item"}>
-                            <summary className={"item__title-container"} onClick={handleAccordionClick}>
-                                <div className={"item__number-container"}>
-                                    <p className={"text_m item__number"}>04</p>
-                                    <p className={"text_m item__title"}>Обеспечение доступности и простоты
-                                        использования</p>
-                                </div>
-                                <div className={"link item__btn"}></div>
-                            </summary>
-                            <p className={"text_s item__description"}>Мы&nbsp;стремимся сделать гидропонику доступной
-                                для
-                                всех. Наша цель&nbsp;&mdash; предоставить интуитивно понятные и&nbsp;легко используемые
-                                инструменты управления гидропонными теплицами.</p>
-                        </details>
-                        <details className={"item"}>
-                            <summary className={"item__title-container"} onClick={handleAccordionClick}>
-                                <div className={"item__number-container"}>
-                                <p className={"text_m item__number"}>05</p>
-                                <p className={"text_m item__title"}>Поддержка и обучение</p>
-                                </div>
-                                <div className={"link item__btn"}></div>
-                            </summary>
-                            <p className={"text_s item__description"}>Мы&nbsp;ценим наших клиентов и&nbsp;стремимся
-                                предоставить им&nbsp;высокий уровень поддержки. Мы&nbsp;предлагаем обучающие материалы,
-                                руководства и&nbsp;персонализированную помощь, чтобы помочь нашим клиентам достичь
-                                желаемых
-                                результатов.</p>
-                        </details>
-                    </div>
-                )}
+                <motion.div className="purposes__items">
+                    <hr className={"item_border"}/>
+                    {purposesInfo.map((item, index) => (
+                        <>
+                        <AccordionItem
+                            key={index}
+                            item={item}
+                            index={index}
+                            openIndex={openIndex}
+                            handleAccordionClick={handleAccordionClick}
+                        />
+                        <motion.hr className={"item_border"}
+                            initial={"hidden"}
+                            whileInView={"visible"}
+                            transition={{duration: 1}}
+                            viewport={{once: true}}
+                            variants={{
+                                visible: {opacity: 1, y: 0},
+                                hidden: {opacity: 0, y: 0}
+                            }}/>
+                        </>
+            ))}
+        </motion.div>
+            )}
 
-            </section>
+        </section>
 
     )
 }

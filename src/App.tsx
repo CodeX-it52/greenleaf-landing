@@ -4,7 +4,6 @@ import SEO from "@utils/seo.tsx";
 import Layout from "@layout/layout";
 import ConfidentialPolitic from "@pages/confidential-politic";
 const Home = React.lazy(() => import("@pages/home"));
-
 const App: React.FC = () => {
   return (
       <div className={"body"}>

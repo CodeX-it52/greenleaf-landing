@@ -44,12 +44,14 @@ const ContactForm: React.FC = () => {
     }, [resetForm])
 
     return (
-        <ScrollTriggerAnimation visibleSetting={{opacity: 1, secondParam: 'y', paramNumber: 0}} hiddenSetting={{opacity: 0, secondParam: 'y', paramNumber: 100}}>
         <section className={"contact-form"} id={"contacts"}>
+            <ScrollTriggerAnimation visibleSetting={{opacity: 1, secondParam: 'y', paramNumber: 0}} hiddenSetting={{opacity: 0, secondParam: 'y', paramNumber: 100}}>
         <div className={"contact-form__title-container"}>
             <div className={"reason__marker reason__marker_contact"}></div>
             <h2 className={"contact-form__title"}>Заинтересовались нашей компанией?</h2>
         </div>
+        </ScrollTriggerAnimation>
+            <ScrollTriggerAnimation visibleSetting={{opacity: 1, secondParam: 'y', paramNumber: 0}} hiddenSetting={{opacity: 0, secondParam: 'y', paramNumber: 100}}>
             <form className={"form-container"} noValidate onSubmit={handleSubmit}>
                 {width > 576 ? (
                     <h2 className={"contact-form__title form-container__title_g"}>Свяжитесь с нами!</h2>
@@ -96,8 +98,9 @@ const ContactForm: React.FC = () => {
 
                 </div>
             </form>
+            </ScrollTriggerAnimation>
         </section>
-        </ScrollTriggerAnimation>
+
     )
 }
 

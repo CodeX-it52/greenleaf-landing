@@ -1,13 +1,18 @@
 import React from "react";
-import Marker from "@components/marker/marker.tsx";
-import Team from "@images/team.svg";
+import {lazy} from "react";
+import {motion} from "framer-motion";
 import {useResize} from "@hooks/useResize.tsx";
+const Marker = lazy(() => import("@components/marker/marker.tsx"))
 import ScrollTriggerAnimation from "@components/scrollTriggerAnimation";
+import Team from "@images/team.svg";
+
 
 const AboutTeam: React.FC = () => {
     const {width} = useResize();
     return (
-        <section className={"team"} id={"about"}>
+        <section
+            className={"team"}
+            id={"about"}>
             <ScrollTriggerAnimation visibleSetting={{opacity: 1, secondParam: 'x', paramNumber: 0}} hiddenSetting={{opacity: 1, secondParam: 'x', paramNumber: -100}}>
             <div className={"title-container"}>
                 <h2 className="title-container__title">Мы&nbsp;делаем <span className={"title-container__span"}>GreenLeaf</span><br/>возможным</h2>
@@ -16,7 +21,16 @@ const AboutTeam: React.FC = () => {
                 </ScrollTriggerAnimation>
             </div>
             </ScrollTriggerAnimation>
-            <div className={"team__container"}>
+            <motion.div
+                className={"team__container"}
+                initial={"hidden"}
+                viewport={{once: true}}
+                transition={{duration: 0.7}}
+                whileInView={"visible"}
+                variants={{
+                    visible: { opacity: 1, y: 0},
+                    hidden: { opacity: 0, y: 20}
+            }}>
                 <div className={"team__description"}>
                     {width > 576 && (
                         <p className={"text_m team__text"}>Наша команда посвящена созданию инновационных решений для
@@ -30,7 +44,7 @@ const AboutTeam: React.FC = () => {
                 {width <= 576 && (
                     <p className={"text_m team__text team__text_m"}>Наша команда посвящена созданию инновационных решений для гидропоники и&nbsp;поддержке наших клиентов в&nbsp;достижении успеха в&nbsp;сельском хозяйстве.</p>
                 )}
-            </div>
+            </motion.div>
         </section>
     )
 }

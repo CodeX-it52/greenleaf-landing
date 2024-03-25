@@ -1,9 +1,38 @@
+/*
+* Prefixed by https://autoprefixer.github.io
+* PostCSS: v8.4.14,
+* Autoprefixer: v10.4.7
+* Browsers: last 4 version
+*/
+
 @use "@scss/variables" as *;
+@-webkit-keyframes markerBlend {
+  from {
+    opacity: 0
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes markerBlend {
+  from {
+    opacity: 0
+  }
+  to {
+    opacity: 1;
+  }
+}
+
 .contact-form {
   width: 100%;
   padding: 90px 0;
   margin: 0 auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
   flex-direction: column;
   gap: 51px;
 
@@ -36,7 +65,12 @@
 
 .contact-form__title-container {
   width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: row;
   flex-direction: row;
   gap: 40px;
 
@@ -48,6 +82,8 @@
 .reason__marker_contact {
   height: calc(76px + 25px * 2);
   max-height: 150px;
+  -webkit-animation: markerBlend 1.2s ease-in-out forwards;
+  animation: markerBlend 1.2s ease-in-out forwards;
 
   @media screen and (max-width: 1023px) {
     height: calc(58px + 15px * 2);
@@ -56,7 +92,12 @@
 }
 
 .form-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
   flex-direction: column;
   gap: 45px;
 
@@ -74,7 +115,12 @@
 
 .form {
   width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
   flex-direction: column;
   gap: 15px;
   max-width: 940px;
@@ -92,7 +138,12 @@
 
 .form__input {
   width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
   flex-direction: column;
   gap: 10px;
 }
@@ -150,9 +201,18 @@
 
 .form-container__btn-container {
   width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: row;
   flex-direction: row;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
   justify-content: space-between;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
   max-width: 940px;
 
@@ -162,6 +222,8 @@
 }
 
 .form-container__links {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
   gap: 30px;
 
@@ -186,6 +248,8 @@
   border-radius: 50px 0 50px 0;
   font-size: 20px;
   text-align: center;
+  -webkit-transition: all 0.4s ease-in-out;
+  -o-transition: all 0.4s ease-in-out;
   transition: all 0.4s ease-in-out;
   cursor: pointer;
 
@@ -204,6 +268,8 @@
 
 .form-container__btn:hover {
   opacity: 0.7;
+  -webkit-transition: all 0.4s ease-in-out;
+  -o-transition: all 0.4s ease-in-out;
   transition: all 0.4s ease-in-out;
 }
 
@@ -220,6 +286,8 @@
   width: 50px;
   height: 50px;
   padding: 5px;
+  -webkit-transition: all 0.4s ease-in-out;
+  -o-transition: all 0.4s ease-in-out;
   transition: all 0.4s ease-in-out;
   cursor: pointer;
 
@@ -260,5 +328,7 @@
 
 .form-container__link:hover {
   opacity: 0.7;
+  -webkit-transition: all 0.4s ease-in-out;
+  -o-transition: all 0.4s ease-in-out;
   transition: all 0.4s ease-in-out;
 }

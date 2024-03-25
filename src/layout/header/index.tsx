@@ -1,6 +1,7 @@
 import React from "react";
 import {HashLink} from "react-router-hash-link";
 import {Link} from "react-router-dom";
+import {AnimatePresence, motion} from "framer-motion";
 import Logo from "@images/Logo_header.svg"
 import LogoBurger from "@images/logo_burger.svg"
 import Navigation from "@components/navigation";
@@ -12,6 +13,9 @@ const Header: React.FC = () => {
 
     function handleBurgerCLick() {
         isBurgerClicked(!burgerCLicked);
+    }
+    function handleLinkCLick() {
+        isBurgerClicked(false);
     }
     return (
         <header className={`header ${burgerCLicked && "header_burger"}`}>
@@ -28,14 +32,22 @@ const Header: React.FC = () => {
                 </div>
             )}
 
+            <AnimatePresence>
             {burgerCLicked && (
-                <div className={"burger-menu"}>
+                <motion.nav
+                    className={"burger-menu"}
+                    initial={{opacity: 0, height: 0}}
+                    animate={{opacity: 1, height: "auto"}}
+                    exit={{opacity: 0, height: 0}}
+                    transition={{duration: 0.2}}
+                >
                     <div className={"burger-menu__links-container"}>
-                        <Navigation />
+                        <Navigation onClick={handleLinkCLick}/>
                         <Link to={"tel:+79115694343"} className="text_s header__phone link header__phone_burger">+7 (911) 569-43-43</Link>
                     </div>
-                </div>
+                </motion.nav>
             )}
+            </AnimatePresence>
 
         </header>
     )

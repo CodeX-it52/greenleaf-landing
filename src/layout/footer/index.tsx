@@ -10,7 +10,7 @@ const Footer: React.FC = () => {
         <footer className={"footer"}>
             <div className={"footer__wrap"}>
             <div className={"footer__address-container"}>
-                <img className={"logo"} src={Logo} alt={"Логотип компании"}/>
+                <HashLink to={"/#"}><img className={"logo"} src={Logo} alt={"Логотип компании"}/></HashLink>
                 <p className={"footer__address text_s"}>197227, Ленинградская область, Всеволожский район, п. Бугры, ул. Английская, д.6 пом. 32</p>
             </div>
                 {width > 576 && (<div className={"footer__nav"}>
