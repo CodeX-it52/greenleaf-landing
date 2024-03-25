@@ -1,10 +1,22 @@
+/*
+* Prefixed by https://autoprefixer.github.io
+* PostCSS: v8.4.14,
+* Autoprefixer: v10.4.7
+* Browsers: last 4 version
+*/
+
 @use "@scss/variables" as *;
 
 .reasons {
   width: 100%;
   padding: 90px 0;
   margin: 0 auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
   flex-direction: column;
   gap: 66px;
 
@@ -20,7 +32,12 @@
 }
 
 .reasons__container {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
   flex-direction: column;
   gap: 35px;
   padding-left: 0;
@@ -32,8 +49,15 @@
 }
 
 .reason {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: row;
   flex-direction: row;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
   justify-content: space-between;
   width: 100%;
   list-style-type: none;
@@ -51,7 +75,12 @@
 }
 
 .reason__title-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: row;
   flex-direction: row;
   gap: 40px;
 
@@ -61,6 +90,9 @@
 }
 
 .reason__title-container_m {
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
   flex-direction: column;
   gap: 25px;
   width: 100%;
@@ -83,6 +115,8 @@
 }
 
 .reason__marker {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
   content: "";
   width: 20px;
@@ -117,6 +151,5 @@
     font-size: 12px;
   }
 }
-
 
 
