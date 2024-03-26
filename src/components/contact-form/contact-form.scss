@@ -168,7 +168,7 @@
   @media screen and (max-width: 576px) {
     width: calc(100% - 20px * 2);
     padding: 20px;
-    font-size: 12px;
+    font-size: 14px;
     font-weight: 400;
   }
 }
@@ -225,6 +225,7 @@
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  align-items: center;
   gap: 30px;
 
   @media screen and (max-width: 1023px) {
@@ -324,6 +325,15 @@
 
 .form-container__link_tg {
   background-image: url("@images/Telegram.svg");
+  background-size: 40px;
+
+  @media screen and (max-width: 1023px) {
+    background-size: 30px;
+  }
+
+  @media screen and (max-width: 576px) {
+    background-size: 25px;
+  }
 }
 
 .form-container__link:hover {
