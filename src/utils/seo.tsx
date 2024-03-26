@@ -4,7 +4,7 @@ import {Helmet} from "react-helmet-async";
 type SeoProps = {
     title: string,
     description: string,
-    keywords: string[],
+    keywords: string[] | undefined,
 }
 
 const SEO: React.FC<SeoProps> = ({title, description, keywords} ) => {
@@ -14,7 +14,7 @@ const SEO: React.FC<SeoProps> = ({title, description, keywords} ) => {
             <meta name={"description"} content={description}/>
             <meta name={"robots"} content={"all"}/>
             <meta name="yandex" content="index,follow"/>
-            <meta name={"keywords"} content={keywords} />
+            <meta name={"keywords"} content={keywords ? keywords.join(', ') : ""} />
         </Helmet>
     )
 }

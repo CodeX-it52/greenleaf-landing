@@ -1,4 +1,4 @@
-import React, {lazy} from "react";
+import React, {lazy, ReactElement} from "react";
 import {motion, AnimatePresence} from "framer-motion";
 import {useResize} from "@hooks/useResize.tsx";
 import FirstPage from "@images/1_page.png";
@@ -224,28 +224,35 @@ const cards_gh = [
 const bulletVariants = {
     active: {
         backgroundColor: '#50B05A',
-        transition: 'all 0.4s ease-in-out',
+        transition: {
+            ease: "ease-in-out",
+            duration: 0.4,
+        },
     },
     passive: {
         backgroundColor: 'transparent',
-        transition: 'all 0.4s ease-in-out',
+        transition: {
+            ease: "ease-in-out",
+            duration: 0.4,
+        },
     },
 };
 
-const Carousel: React.FC = ({type}) => {
-    const [cards, setCards] = React.useState([]);
+
+const Carousel: React.FC= () => {
+    const [cards, setCards] = React.useState<ReactElement[]>([]);
     const {width} = useResize();
 
     React.useEffect(() => {
-        let newCards = [];
+        let newCards: React.JSX.Element[] = [];
         newCards = [...cards_gh];
         setCards(newCards);
 
-    }, [type]);
+    }, []);
 
     const [[page, direction], setPage] = React.useState([0, 0]);
     const [lastClick, setLastClick] = React.useState(0);
-    const paginate = (to, navigate = null) => {
+    const paginate = (to: number, navigate: number|null = null) => {
         if (typeof navigate === 'number') {
             setPage([navigate, navigate - page]);
         } else if (page + to < cards.length && page + to >= 0) {
@@ -258,17 +265,27 @@ const Carousel: React.FC = ({type}) => {
     };
 
     const slideVariants = {
-        enter: (direction) => ({ x: direction * 200, opacity: 0 }),
+        enter: (direction: number) : {opacity: number, x: number}  => ({ x: direction * 200, opacity: 0 }),
         center: { x: 0, opacity: 1, zIndex: 1 },
-        exit: (direction) => ({ x: direction * -400, opacity: 0, zIndex: 0 }),
+        exit: (direction: number) : {opacity: number, x: number, zIndex: number} => ({ x: direction * -400, opacity: 0, zIndex: 0 }),
     };
 
+    React.useEffect(() => {
+        if (width < 576) {
+                const interval = setInterval(() => {
+                    paginate(1)
+                }, 5000)
+                return () => clearInterval(interval);
+        }
+    }, [setPage, page, width, paginate])
+
+
     const swipeConfidenceThreshold = 10000;
-    const swipePower = (offset, velocity) => {
+    const swipePower = (offset: number, velocity: number) => {
         return Math.abs(offset) * velocity;
     };
 
-    const preventClick = (to) => {
+    const preventClick = (to: number) => {
         const now = Date.now();
         if (now - lastClick <= 400) return;
         setLastClick(now);
@@ -285,7 +302,7 @@ const Carousel: React.FC = ({type}) => {
                     drag="x"
                     dragConstraints={{ left: 0, right: 0 }}
                     dragElastic={1}
-                    onDragEnd={(e, { offset, velocity }) => {
+                    onDragEnd={(_, { offset, velocity }) => {
                         const swipe = swipePower(offset.x, velocity.x);
 
                         if (swipe < -swipeConfidenceThreshold) {
@@ -331,7 +348,7 @@ const Carousel: React.FC = ({type}) => {
 
                 </motion.div>
                 <motion.div className={'bullets'}>
-                    {cards?.map((card, index) => {
+                    {cards?.map((_, index) => {
                         return (
                             <motion.div
                                 className={'bullet'}
@@ -339,7 +356,7 @@ const Carousel: React.FC = ({type}) => {
                                 variants={bulletVariants}
                                 animate={page === index ? 'active' : 'passive'}
                                 onClick={() => {
-                                    paginate('', index);
+                                    paginate(0, index);
                                 }}
                             ></motion.div>
                         );
