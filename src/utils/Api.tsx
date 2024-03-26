@@ -12,7 +12,7 @@ class Api {
         this.options = options;
     }
 
-    _getResponseData(res: Response): Promise<any> {
+    _getResponseData(res: Response): Promise<JSON> {
         if (!res.ok) {
             return Promise.reject(res.status)
         }
@@ -24,9 +24,9 @@ class Api {
             method: "POST",
             headers: this.options?.headers,
             body: JSON.stringify({
-                name: name,
-                phone: phone,
-                email: email,
+                name,
+                phone,
+                email,
                 message: text,
             })
         }).then((res: Response) => {

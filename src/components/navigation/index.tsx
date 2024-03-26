@@ -1,6 +1,7 @@
 import React from "react";
 import {HashLink} from "react-router-hash-link";
 import {motion} from "framer-motion";
+import {useScroll} from "@hooks/useScroll.tsx";
 
 interface linksInfo {
     title: string;
@@ -45,7 +46,11 @@ const variants = {
     }
 };
 
-const Navigation: React.FC = ({onClick}) => {
+type NavigationProps = {
+    onClick?: () => void;
+}
+
+const Navigation: React.FC<NavigationProps> = ({onClick}) => {
     return (
         <ul className="navigation">
             {linksInfo.map((item, key) => (
@@ -54,7 +59,7 @@ const Navigation: React.FC = ({onClick}) => {
                     className={"navigation__link-container"}
                     variants={variants}
                 >
-                    <HashLink className={"link text_s navigation__link"} to={item.link} onClick={onClick} smooth>{item.title}</HashLink>
+                    <HashLink className={"link text_s navigation__link"} to={item.link} onClick={onClick} scroll={useScroll} smooth>{item.title}</HashLink>
                 </motion.li>
             ))}
         </ul>

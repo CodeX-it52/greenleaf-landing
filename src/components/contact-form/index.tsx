@@ -1,8 +1,7 @@
 import React from "react";
-// @ts-expect-error
+// @ts-ignore
 import {useFormWithValidation} from "@hooks/useFormWithValidation.jsx";
 import {useResize} from "@hooks/useResize.tsx";
-import {Link} from "react-router-dom";
 import {api} from "@utils/Api.tsx";
 import ScrollTriggerAnimation from "@components/scrollTriggerAnimation";
 
@@ -14,9 +13,9 @@ const ContactForm: React.FC = () => {
     const {width} = useResize();
     const {values, handleChange, errors, isValid, resetForm} = useFormWithValidation();
 
-    function handleSubmit(e) {
+    function handleSubmit(e: React.FormEvent<HTMLFormElement>): void | false {
         e.preventDefault();
-        api.sendInfo(values.email, values.name, values.phone, values.text).then((data) => {
+        api.sendInfo({email: values.email, name: values.name, phone: values.phone, text: values.text}).then((data): void => {
             if (data) {
                 isSuccess(true);
                 resetForm();
@@ -58,10 +57,10 @@ const ContactForm: React.FC = () => {
                 ) : (
                     <div className={"form-container__btn-container"}>
                         <h2 className={"contact-form__title form-container__title_g"}>Свяжитесь с нами!</h2>
-                        <div className={"form-container__links"}>
-                            <Link className={"link form-container__link form-container__link_wu"} to="#"></Link>
-                            <Link className={"link form-container__link form-container__link_tg"} to="#"></Link>
-                        </div>
+                        {/*<div className={"form-container__links"}>*/}
+                        {/*    <Link className={"link form-container__link form-container__link_wu"} to="#"></Link>*/}
+                        {/*    <Link className={"link form-container__link form-container__link_tg"} to="#"></Link>*/}
+                        {/*</div>*/}
                     </div>
                 )}
                 <div className={"form"}>
@@ -91,10 +90,10 @@ const ContactForm: React.FC = () => {
                 <div className={"form-container__btn-container"}>
                     <button className={"form-container__btn"} type={"submit"} disabled={!isValid}>оставить заявку
                     </button>
-                    {width > 576 && (<div className={"form-container__links"}>
-                        <Link className={"link form-container__link form-container__link_wu"} to="#"></Link>
-                        <Link className={"link form-container__link form-container__link_tg"} to="#"></Link>
-                    </div>)}
+                    {/*{width > 576 && (<div className={"form-container__links"}>*/}
+                    {/*    <Link className={"link form-container__link form-container__link_wu"} to="#"></Link>*/}
+                    {/*    <Link className={"link form-container__link form-container__link_tg"} to="#"></Link>*/}
+                    {/*</div>)}*/}
 
                 </div>
             </form>

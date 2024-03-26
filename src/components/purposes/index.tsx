@@ -41,7 +41,14 @@ const purposesInfo: PurposesType = [
     },
 ]
 
-const AccordionItem = memo(({item, index, openIndex, handleAccordionClick}) => {
+type AccordionItemProps = {
+    item: Purpose;
+    index: number;
+    openIndex: number | null;
+    handleAccordionClick: (index: number | null) => void;
+}
+
+const AccordionItem: React.FC<AccordionItemProps> = memo(({item, index, openIndex, handleAccordionClick}) => {
     return (
         <div className={"item"}>
             <motion.div className={"item__title-container"} layout onClick={() => {
@@ -72,8 +79,8 @@ const AccordionItem = memo(({item, index, openIndex, handleAccordionClick}) => {
 
 const Purposes: React.FC = () => {
     const {width} = useResize();
-    const [openIndex, setOpenIndex] = React.useState(null);
-    const handleAccordionClick = useCallback((index) => {
+    const [openIndex, setOpenIndex] = React.useState<null|number>(null);
+    const handleAccordionClick = useCallback((index: number | null): void => {
         setOpenIndex(index === openIndex ? null : index);
     }, [openIndex])
 

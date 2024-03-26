@@ -5,13 +5,13 @@ interface ComponentProps {
     children: ReactNode,
     visibleSetting: {
         opacity: number,
-        secondParam?: string | undefined,
-        paramNumber?: number | undefined,
+        secondParam: string,
+        paramNumber: number,
     },
     hiddenSetting: {
         opacity: number,
-        secondParam?: string | undefined,
-        paramNumber?: number | undefined,
+        secondParam: string,
+        paramNumber: number,
     },
 }
 
@@ -24,8 +24,8 @@ const ScrollTriggerAnimation: React.FC<ComponentProps> = ({children, visibleSett
             transition={{duration: 0.5}}
             whileInView={"visible"}
             variants={{
-                visible: { opacity: visibleSetting.opacity, [visibleSetting?.secondParam]: visibleSetting?.paramNumber },
-                hidden: { opacity: hiddenSetting.opacity, [hiddenSetting?.secondParam]: hiddenSetting?.paramNumber }
+                visible: { opacity: visibleSetting.opacity, [visibleSetting.secondParam]: visibleSetting.paramNumber },
+                hidden: { opacity: hiddenSetting.opacity, [hiddenSetting.secondParam]: hiddenSetting.paramNumber }
             }}
         >
             {children}

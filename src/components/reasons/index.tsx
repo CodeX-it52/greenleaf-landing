@@ -1,6 +1,6 @@
 import React from "react";
 import {lazy} from "react";
-import {motion, AnimatePresence} from "framer-motion";
+import {motion} from "framer-motion";
 
 const Marker = lazy(() => import("@components/marker/marker.tsx"))
 import {useResize} from "@hooks/useResize.tsx";
