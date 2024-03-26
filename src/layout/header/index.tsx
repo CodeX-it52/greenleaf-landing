@@ -6,6 +6,7 @@ import Logo from "@images/Logo_header.svg"
 import LogoBurger from "@images/logo_burger.svg"
 import Navigation from "@components/navigation";
 import {useResize} from "@hooks/useResize.tsx";
+import {useScroll} from "@hooks/useScroll.tsx";
 
 const Header: React.FC = () => {
     const [burgerCLicked, isBurgerClicked] = React.useState<boolean>(false);
@@ -19,7 +20,7 @@ const Header: React.FC = () => {
     }
     return (
         <header className={`header ${burgerCLicked && "header_burger"}`}>
-            <HashLink to={"/#"}><img className={`logo ${burgerCLicked && "logo_burger"}`} src={burgerCLicked ? LogoBurger : Logo} alt={"Логотип компании"}/></HashLink>
+            <HashLink to={"/#"} scroll={useScroll}><img className={`logo ${burgerCLicked && "logo_burger"}`} src={burgerCLicked ? LogoBurger : Logo} alt={"Логотип компании"}/></HashLink>
             {width < 678 ? (
                 <>
                     {!burgerCLicked && (<div className={"burger-menu__btn"} onClick={handleBurgerCLick}></div>)}
@@ -28,7 +29,7 @@ const Header: React.FC = () => {
             ) : (
                 <div className={"header__links-container"}>
                     <Navigation />
-                    <Link to={"tel:+79115694343"} className="text_s header__phone link ">+7 (911) 569-43-43</Link>
+                    <Link to={"tel:+79200112255"} className="text_s header__phone link ">+7 (920) 011-22-55</Link>
                 </div>
             )}
 

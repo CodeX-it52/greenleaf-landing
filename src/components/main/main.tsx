@@ -2,6 +2,7 @@ import React from "react";
 import ScrollTriggerAnimation from "@components/scrollTriggerAnimation";
 import BlinkAnimationComponent from "@components/blinkAnimationComponent";
 import {HashLink} from "react-router-hash-link";
+import {useScroll} from "@hooks/useScroll.tsx";
 
 const visibleSetting = {
     opacity: 1,
@@ -26,7 +27,7 @@ const Main: React.FC = () => {
                     <p className={"text_m cover__subtitle"}>Мы&nbsp;автоматизируем процесс выращивания растений
                         в&nbsp;гидропонных системах и&nbsp;предоставим надежные и&nbsp;понятные инструменты
                         управления</p>
-                    <HashLink to={"/#contacts"} smooth className={"cover__btn link"}>Оставить заявку</HashLink>
+                    <HashLink to={"/#contacts"} smooth className={"cover__btn link"} scroll={useScroll}>Оставить заявку</HashLink>
                 </div>
                 </ScrollTriggerAnimation>
                 <BlinkAnimationComponent>
