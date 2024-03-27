@@ -7,6 +7,24 @@
 
 @use "@scss/variables" as *;
 
+@keyframes roundAnimation {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(-360deg);
+  }
+}
+
+@keyframes roundAnimationRight {
+  from {
+    transform: rotate(-40deg);
+  }
+  to {
+    transform: rotate(-400deg);
+  }
+}
+
 .cover {
   width: 100%;
   margin: 0 auto;
@@ -143,30 +161,102 @@
 }
 
 .cover__dekstop {
-  content: "";
-  background-image: url("@images/device.svg");
-  max-width: 586px;
-  max-height: 430px;
+  position: relative;
   width: 100%;
-  height: 430px;
-  background-size: 586px 430px;
-  margin-right: -90px;
-  background-repeat: no-repeat;
-  background-position: center;
+  display: flex;
+  flex-direction: row;
   z-index: 1;
+  justify-content: end;
+
+  @media screen and (max-width: 1023px) {
+  }
+
+  @media screen and (max-width: 576px) {
+    justify-content: center;
+  }
+}
+
+.cover__btns-container {
+  height: auto;
+  display: flex;
+  flex-direction: row;
+  gap: 39px;
+  position: absolute;
+  right: 29px;
+  bottom: 289px;
+  z-index: 3;
 
 
   @media screen and (max-width: 1023px) {
-    margin-right: -220px;
-    background-size: 440px 322px;
+    gap: 24px;
+    bottom: 127px;
+    right: -15px;
+  }
+
+  @media screen and (max-width: 576px) {
+    gap: 24px;
+  }
+}
+
+
+
+.cover__btns {
+  content: "";
+  background-image: url("@images/manipulator_cover.svg");
+  width: 106px;
+  height: 106px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  z-index: 5;
+
+
+  @media screen and (max-width: 1023px) {
+    width: 80px;
+    height: 80px;
+  }
+
+  @media screen and (max-width: 576px) {
+    width: 65px;
+    height: 65px;
+  }
+}
+
+.cover__btns:nth-child(1n) {
+  animation: roundAnimation 9s linear infinite;
+}
+
+.cover__btns:nth-child(2n) {
+  transform: rotate(-40deg);
+  animation: roundAnimationRight 10s linear infinite;
+}
+
+.cover__gradient {
+  content: "";
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: absolute;
+  z-index: 7;
+  top: 0;
+  left: -15px;
+  margin-right: -90px;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0) 10%, rgba(253, 255, 255, 0.5) 23%, rgba(255, 255, 255, 0) 50%, rgba(253, 255, 255, 0.5) 40%, rgba(255, 255, 255, 0) 50%, rgba(255, 255, 255, 0.5) 59%, rgba(255, 255, 255, 0) 70%);
+}
+
+.cover__image {
+  width: calc(586px - 173px);
+  margin-right: -90px;
+
+  @media screen and (max-width: 1023px) {
+    margin-right: -100px;
+    width: 300px;
   }
 
   @media screen and (max-width: 576px) {
     margin-right: 0;
     width: 100%;
-    max-width: 100%;
-    max-height: 263px;
-    background-size: contain;
-    background-image: url("@images/device_mob.svg");
   }
 }
