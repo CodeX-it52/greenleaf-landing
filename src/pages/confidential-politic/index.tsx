@@ -3,7 +3,7 @@ import React from "react";
 const ConfidentialPolitic: React.FC = () => {
     return (
         <>
-            <section className={"confidential"}>
+            <section className={"confidential"} id={"confidential"}>
                 <h2 className={"confidential__title"}>Политика конфиденциальности</h2>
                 <div className={"confidential__container"}>
                     <div className={"confidential__point"}>

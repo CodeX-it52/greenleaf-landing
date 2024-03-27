@@ -10,7 +10,29 @@ import {useScroll} from "@hooks/useScroll.tsx";
 
 const Header: React.FC = () => {
     const [burgerCLicked, isBurgerClicked] = React.useState<boolean>(false);
+    const [prevScrollPos, setPrevScrollPos] = React.useState<number>(0);
+    const [visible, setVisible] = React.useState<boolean>(true);
+
     const {width} = useResize();
+
+    React.useEffect(() => {
+        const handleScroll = () => {
+            const currentScrollPos = window.scrollY;
+            setVisible(
+                (prevScrollPos > currentScrollPos &&
+                    prevScrollPos - currentScrollPos > 70) ||
+                currentScrollPos < 10
+            );
+            setPrevScrollPos(currentScrollPos)
+            if (currentScrollPos < prevScrollPos) {
+                setVisible(true)
+            } else {
+                setVisible(false);
+            }
+        }
+
+        window.addEventListener("scroll", handleScroll)
+    }, [prevScrollPos, visible])
 
     function handleBurgerCLick() {
         isBurgerClicked(!burgerCLicked);
@@ -19,7 +41,12 @@ const Header: React.FC = () => {
         isBurgerClicked(false);
     }
     return (
-        <header className={`header ${burgerCLicked && "header_burger"}`}>
+        <motion.header
+            className={`header ${burgerCLicked && "header_burger"}`}
+            initial={{opacity: 1}}
+            animate={{opacity: visible ? 1 : 0, top: visible ? 0 : - 80}}
+        >
+            <div className={`header__container ${burgerCLicked && "header__container_burger"}`}>
             <HashLink to={"/#"} scroll={useScroll}><img className={`logo ${burgerCLicked && "logo_burger"}`} src={burgerCLicked ? LogoBurger : Logo} alt={"Логотип компании"}/></HashLink>
             {width < 678 ? (
                 <>
@@ -49,8 +76,8 @@ const Header: React.FC = () => {
                 </motion.nav>
             )}
             </AnimatePresence>
-
-        </header>
+            </div>
+        </motion.header>
     )
 }
 

@@ -12,7 +12,7 @@ const Footer: React.FC = () => {
             <div className={"footer__wrap"}>
             <div className={"footer__address-container"}>
                 <HashLink to={"/#"} scroll={useScroll}><img className={"logo"} src={Logo} alt={"Логотип компании"}/></HashLink>
-                <p className={"footer__address text_s"}>197227, Ленинградская область, Всеволожский район, п. Бугры, ул. Английская, д.6 пом. 32</p>
+                <p className={"footer__address text_s"}>603137, Нижегородская область, г Нижний Новгород, пр-кт Гагарина, д. 226, кв. 48</p>
             </div>
                 {width > 576 && (<div className={"footer__nav"}>
                     <HashLink className={"link footer__navlink text_s"} to={"/#"} scroll={useScroll}>главная</HashLink>

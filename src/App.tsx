@@ -3,6 +3,7 @@ import { Route, Routes } from "react-router";
 import SEO from "@utils/seo.tsx";
 import Layout from "@layout/layout";
 import ConfidentialPolitic from "@pages/confidential-politic";
+import ScrollToTop from "@components/scroll-to-top";
 const Home = React.lazy(() => import("@pages/home"));
 
 const SEOOptions: {title: string, description: string, keywords: string[]} = {
@@ -24,6 +25,7 @@ const App: React.FC = () => {
                       <Route path={"/confidential"} element={<ConfidentialPolitic />}/>
                   </Routes>
               </Layout>
+          <ScrollToTop/>
       </div>
   );
 }
