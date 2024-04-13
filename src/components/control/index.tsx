@@ -1,4 +1,5 @@
 import React from "react";
+import {motion} from "framer-motion";
 import ScrollTriggerAnimation from "@components/scrollTriggerAnimation";
 import Marker from "@components/marker/marker.tsx";
 import PHLevel from "@images/ph_level.svg"
@@ -19,7 +20,17 @@ const Control: React.FC = () => {
                     </ScrollTriggerAnimation>
                 </div>
             </ScrollTriggerAnimation>
-            <div className={"control__main"}>
+            <motion.div
+                className={"control__main"}
+                initial={"hidden"}
+                viewport={{once: true}}
+                transition={{duration: 1}}
+                whileInView={"visible"}
+                variants={{
+                    visible: {opacity: 1, y: 0},
+                    hidden: {opacity: 0, y: 100}
+                }}
+            >
                 <p className={"text_m control__text"}>Мы&nbsp;учитываем множество показателей, что способствует наилучшему процессу выращивания растений.</p>
                 <div className={"control__items"}>
                     <div className={"control__item"}>
@@ -65,7 +76,7 @@ const Control: React.FC = () => {
                         </div>
                     </div>
                 </div>
-            </div>
+            </motion.div>
         </section>
     )
 }
