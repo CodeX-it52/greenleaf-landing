@@ -2,6 +2,7 @@ import React from "react";
 import {lazy} from "react";
 import {useResize} from "@hooks/useResize.tsx";
 import ScrollTriggerAnimation from "@components/scrollTriggerAnimation";
+import Control from "@components/control";
 const Main = lazy(() => import("@components/main/main.tsx"));
 const Purposes = lazy(() => import("@components/purposes"));
 const AboutTeam = lazy(() => import("@components/about-team"));
@@ -21,6 +22,7 @@ const {width} = useResize();
             <AboutTeam />
             <Reasons/>
             <Functions />
+            <Control />
             <section className={"carousel"}>
                 {width <= 576 ? (
                     <ScrollTriggerAnimation visibleSetting={{opacity: 1, secondParam: 'x', paramNumber: 0}}
