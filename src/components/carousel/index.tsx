@@ -10,7 +10,7 @@ import SixthPage from "@images/6_page.png"
 import SeventhPage from "@images/7_page.png"
 import EighthPage from "@images/8_page.png"
 import NinthPage from "@images/9_page.png"
-import TenthPage from "@images/10_page.png"
+// import TenthPage from "@images/10_page.png"
 const ScrollTriggerAnimation = lazy(() => import("@components/scrollTriggerAnimation"));
 
 
@@ -198,26 +198,27 @@ const cards_gh = [
             </div>
             <motion.img className={"card__img"} src={NinthPage} alt={"Демонстрация интерфейса приложения"}/>
         </div>
-    </>, <>
-        <div className={"card__container"}>
-            <div className={"card__description-container"}>
-                <ScrollTriggerAnimation visibleSetting={{opacity: 1, secondParam: 'x', paramNumber: 0}}
-                                    hiddenSetting={{opacity: 1, secondParam: 'x', paramNumber: -100}}>
-                <h2 className="title-container__title title-container__title_m">
-                    <span className={"title-container__span"}>Решим ваш вопрос</span></h2>
-                </ScrollTriggerAnimation>
-                <p className={"text_m card__description"}>В&nbsp;случае ошибки или иной неполадки сообщите о&nbsp;ней внутри приложении. Наша команда безотлагательно обработает ваш запрос и&nbsp;решит его в&nbsp;первостепенном порядке.</p>
-            </div>
-            <motion.img className={"card__img"} src={TenthPage} alt={"Демонстрация интерфейса приложения"} initial={"hidden"}
-                        viewport={{once: true}}
-                        transition={{duration: 0.5}}
-                        whileInView={"visible"}
-                        variants={{
-                            visible: {opacity: 1, y: 0},
-                            hidden: {opacity: 0, y: 20}
-                        }}/>
-        </div>
-    </>
+    </>,
+    // <>
+    //     <div className={"card__container"}>
+    //         <div className={"card__description-container"}>
+    //             <ScrollTriggerAnimation visibleSetting={{opacity: 1, secondParam: 'x', paramNumber: 0}}
+    //                                 hiddenSetting={{opacity: 1, secondParam: 'x', paramNumber: -100}}>
+    //             <h2 className="title-container__title title-container__title_m">
+    //                 <span className={"title-container__span"}>Решим ваш вопрос</span></h2>
+    //             </ScrollTriggerAnimation>
+    //             <p className={"text_m card__description"}>В&nbsp;случае ошибки или иной неполадки сообщите о&nbsp;ней внутри приложении. Наша команда безотлагательно обработает ваш запрос и&nbsp;решит его в&nbsp;первостепенном порядке.</p>
+    //         </div>
+    //         <motion.img className={"card__img"} src={TenthPage} alt={"Демонстрация интерфейса приложения"} initial={"hidden"}
+    //                     viewport={{once: true}}
+    //                     transition={{duration: 0.5}}
+    //                     whileInView={"visible"}
+    //                     variants={{
+    //                         visible: {opacity: 1, y: 0},
+    //                         hidden: {opacity: 0, y: 20}
+    //                     }}/>
+    //     </div>
+    // </>
 
 ]
 
